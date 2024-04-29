@@ -1,0 +1,280 @@
+<script>
+Dashboards.board('container', {
+  gui: {
+    layouts: [{
+      id: 'layout-1',
+      rows: [{
+        cells: [{
+          id: 'title'
+        }]
+      },{
+        cells: [{
+          id: 'bucket-1'
+        },{
+          id: 'bucket-2'
+        },{
+          id: 'bucket-3'
+        }]
+      },{
+        cells: [{
+          id: 'bucket-1-col-0'
+        }, {
+          id: 'bucket-2-col-0'
+        },{
+          id: 'bucket-3-col-0'
+        }]
+      }]
+    }]
+  },
+  components: [{
+    cell: 'title',
+    type: 'HTML',
+    elements: [
+      {
+      tagName: 'h1',
+      textContent: 'What is work in contemporary Britain like?'
+    },
+    {
+      tagName: 'p',
+      textContent: 'More people in Britain are in work than ever before and the majority of workers report finding meaning in their work. While the British economy has proved effective at generating employment, this has often come at cost of security, quality, and pay. Many workers have very little say over how and how much they work. Workers are less likely to be covered by a ',
+      children: [
+        {
+          tagName: 'a',
+          textContent: 'collective bargaining agreement',
+          attributes: {
+            href: 'https://example.com'
+          }
+        },
+        {
+          tagName: 'span',
+          textContent: ' than in recent decades, and with lower union density and less union power, workers lose out when it comes to pay and conditions.'
+        }
+      ]
+    },
+    {
+      tagName: 'p',
+      textContent: 'Given these problems, the political question is how can the reality of contemporary work generate a politics capable of its transformation?'
+    },{
+        tagName: 'p',
+        textContent: 'In this new data dashboard, Common Wealth’s Centre for Democratising Work assesses the state of contemporary work through three ongoing data focuses: The relative power of labour and capital Working time Work quality By better understanding work, we are better equipped to transform it.'
+      }
+    ]
+  },{
+    type: 'HTML',
+    cell: 'bucket-1',
+    elements: [
+      {
+        tagName: 'h2',
+        textContent: 'The relative power of labour and capital'
+      },{
+        tagName: 'p',
+        textContent: 'This data focus explores the relative power that workers and capital have. Who is able to claim the surplus? Where are union protections and membership strongest, and (how) does that translate into better work?'
+      },{
+        tagName: 'a',
+        textContent: 'Click here to explore this topic in more detail',
+          attributes: {
+            href: 'https://codepen.io/sophief_common_wealth/full/QWPobVR'
+          }
+      }
+    ]
+  }, {
+    cell: 'bucket-1-col-0',
+    type: 'Highcharts',
+    chartOptions: {
+      chart: {
+      type: 'line',
+      zoomType: 'xy'
+    },
+    title: {
+      text:'Dividends have far outpaced stagnant pay & investment',
+      align: 'left'
+    },
+    subtitle: {
+      text:'Labour compensation, dividend income. Indexed 1988 = 100. Four-quarter moving average trailing average.',
+      align: 'left'
+    },
+    yAxis: {
+      min:0,
+      title: {text: ''}
+    },
+    tooltip: {
+      formatter: function () {
+        return '<b>' + Highcharts.dateFormat('%B %Y', this.x) + '</b><br/>' +
+          '<b>' + this.series.name + '</b><br/>' +
+          'Value: ' + Highcharts.numberFormat(this.y, 1); // Round to 1 decimal place
+      }
+    },
+    legend: {
+      enabled: false
+    },credits: {
+      enabled: true,
+      text: 'Source: Common Wealth analysis of ONS'
+    },caption:{
+      text:'This figure compares employee compensation (across all corporations, including the public sector) to dividend payments by private non-financial corporations, indexed to 1988, the earliest year available. From 1988 to 2019, the eve of the pandemic, dividend payments by UK private non-financial companies grew 2.5x faster than employee compensation (including pension contributions) each year on average. During 2000-19 it grew 5.5x faster. If worker compensation and dividend payments had grown at an equal pace over 1988-2019 (i.e. at 1.9 per cent per year each, instead of the 4.2 per cent for dividends vs 1.6 per cent for pay that actually transpired), then hourly labour compensation would have been 8.9 per cent greater going into the pandemic.'
+    },
+    exporting: {
+      enabled: false 
+     },
+    xAxis: {
+      labels: {
+        step:1
+      }
+    },
+      data: {
+        csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/ONS%20wages%20vs%20dividends_highcharts.csv'
+      }
+    }
+  },{
+    type: 'HTML',
+    cell: 'bucket-1-col-1',
+    elements: [
+      {
+        tagName: 'p',
+        textContent: 'This figure compares employee compensation (across all corporations, including the public sector) to dividend payments by private non-financial corporations, indexed to 1988, the earliest year available. From 1988 to 2019, the eve of the pandemic, dividend payments by UK private non-financial companies grew 2.5x faster than employee compensation (including pension contributions) each year on average. During 2000-19 it grew 5.5x faster. If worker compensation and dividend payments had grown at an equal pace over 1988-2019 (i.e. at 1.9 per cent per year each, instead of the 4.2 per cent for dividends vs 1.6 per cent for pay that actually transpired), then hourly labour compensation would have been 8.9 per cent greater going into the pandemic.'
+      }
+    ]
+  },{
+    type: 'HTML',
+    cell: 'bucket-2',
+    elements: [
+      {
+        tagName: 'h2',
+        textContent: 'Working Time'
+      },{
+        tagName: 'p',
+        textContent: 'This section explores underemployment, total hours worked, and the distribution of unpaid overtime.'
+      },{
+        tagName: 'a',
+        textContent: 'Click here to explore this topic in more detail',
+          attributes: {
+            href: 'https://codepen.io/sophief_common_wealth/full/KKYEdVd'
+          }
+      }
+    ]
+  },{
+    cell: 'bucket-2-col-0',
+    type: 'Highcharts',
+    chartOptions: {
+      chart: {
+      type: 'line',
+      zoomType: 'xy'
+    },
+    title: {
+      text:'Average weekly hours worked. UK.',
+      align: 'left'
+    },
+    subtitle: {
+      text:'Average weekly hours worked by part time and full time employees, Q1 1995- Q4 2023',
+      align: 'left'
+    },
+    credits: {
+      enabled: true,
+      text: 'Source: ONS'
+    },caption:{
+      text:'This chart shows the seasonally adjusted, weekly hours worked per worker between January 1995 and December 2023. Between 1995 and 2010, there was a relatively steady rate of decline in average weekly hours, from 33.3 hours to 31.3 hours in Apr-Jun 2011. This long-term pattern is observed in most advanced economies as a result of productivity improvement and labour-saving technologies. From 20115 until the Covid-19 pandemic, however, with labour’s bargaining power battered by austerity and anti-union reforms,6 the average weekly hours worked increased to 32.3 hours. In the latest quarter, October to December 2023 the average weekly hours worked was 31.5 hours'
+    },
+    yAxis: {
+      min:25,
+      title: {text: 'Hours'}
+    },
+    legend: {
+      enabled: false
+    },
+    exporting: {
+      enabled: false 
+     },
+      data: {
+        csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/avg%20hours.csv'
+      }
+    }
+  }, {
+    type: 'HTML',
+    cell: 'bucket-2-col-1',
+    elements: [
+      {
+        tagName: 'p',
+        textContent: 'This chart shows the seasonally adjusted, weekly hours worked per worker between January 1995 and December 2023. Between 1995 and 2010, there was a relatively steady rate of decline in average weekly hours, from 33.3 hours to 31.3 hours in Apr-Jun 2011. This long-term pattern is observed in most advanced economies as a result of productivity improvement and labour-saving technologies. From 20115 until the Covid-19 pandemic, however, with labour’s bargaining power battered by austerity and anti-union reforms,6 the average weekly hours worked increased to 32.3 hours. In the latest quarter, October to December 2023 the average weekly hours worked was 31.5 hours'
+      }
+    ]
+  },{
+    type: 'HTML',
+    cell: 'bucket-3',
+    elements: [
+      {
+        tagName: 'h2',
+        textContent: 'Work Quality'
+      },
+      {
+        tagName: 'p',
+        textContent: 'This section explores pay, specifically the prevalence of low pay, career progression and worker involvement.'
+      },{
+        tagName: 'a',
+        textContent: 'Click here to explore this topic in more detail',
+          attributes: {
+            href: 'https://codepen.io/sophief_common_wealth/full/yLrwYOO'
+          }
+      }]
+  },{
+    cell: 'bucket-3-col-0',
+    type: 'Highcharts',
+    chartOptions: {
+      chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Low pay by Region and sex',
+      align: 'left'
+    },
+    xAxis: {
+        categories: ['North East', 'Yorkshire and The Humber', 'Wales', 'East Midlands', 'South West', 'North West', 'Northern Ireland', 'West Midlands', 'South East', 'Scotland', 'East', 'London']
+    },credits: {
+      enabled: true,
+      text: 'Source: ONS'
+    },
+    yAxis: {
+        title: {
+            text: 'Low pay'
+        },
+        min: 0,
+        labels: {
+            format: '{value} %'
+        }
+    },caption:{
+      text:'The proportion of workers on low pay varies by region and nation in the UK, with the highest level of workers on low pay in the North East and the lowest level of workers on low pay in London. In London, 8% of workers had low pay, in the North East, 19% of workers had low pay. This measure is the UK measure for low pay where each workers’ wage, in whatever region or nation, is compared to the UK average. This measure is distinct from an alternative measure for low which measure the proportion of low wage workers relative to the average pay in each region.'
+    },
+    series: [{
+        name: 'Female',
+        data: [22.12903214, 19.95322359, 19.80788802, 19.36204534, 17.47114973, 18.05063185, 17.72113232, 17.6597203, 16.06811302, 13.84519244, 14.65640294, 10.00624227]
+    }, {
+        name: 'Male',
+        data: [15.94156666, 12.91182914, 13.21870605, 11.83164954, 12.77047312, 11.60216378, 10.58169072, 9.952499471, 8.743124008, 8.879924859, 7.522989251, 5.947158243]
+    }, {
+        name: 'Total',
+        data: [19.05614616, 16.36765141, 16.50754503, 15.61409882, 15.12510325, 14.80752882, 14.24372665, 13.75120289, 12.3610466, 11.3948859, 11.04807993, 7.919564993]
+    }],
+    plotOptions: {
+        column: {
+            grouping: true,
+            shadow: false,
+            borderWidth: 0
+        }
+    },
+    tooltip: {
+        formatter: function () {
+            return '<b>' +'Region: '+ '</b>'+ this.x + '<br/>' +
+                '<b>' + this.series.name + '</b>: ' + Highcharts.numberFormat(this.y, 2) + '%';
+        }
+    }
+    }
+  },{
+    type: 'HTML',
+    cell: 'bucket-3-col-1',
+    elements: [
+    {
+        tagName: 'p',
+        textContent: 'The proportion of workers on low pay varies by region and nation in the UK, with the highest level of workers on low pay in the North East and the lowest level of workers on low pay in London. In London, 8% of workers had low pay, in the North East, 19% of workers had low pay. This measure is the UK measure for low pay where each workers’ wage, in whatever region or nation, is compared to the UK average. This measure is distinct from an alternative measure for low which measure the proportion of low wage workers relative to the average pay in each region. '
+      }]
+  }]
+});
+
+</script>
