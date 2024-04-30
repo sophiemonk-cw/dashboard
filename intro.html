@@ -96,10 +96,20 @@ Dashboards.board('dashboard-intro', {
         }]
       },{
         tagName: 'p',
-        textContent: 'CHECK THIS Insecure work is a persistent problem, with 3.9 million workers on zero-hours contracts, outsourced, casual, or agency workers and the low-paid self-employed. In secure work CHECK THIS'
+        textContent: 'Insecure work is a persistent problem, with 3.9 million workers on zero-hours contracts, outsourced, casual, or agency workers and the low-paid self-employed. Conversely, if many now have insecure and volatile employment, worker job mobility has also ',
+        children: [{
+          tagName: 'a',
+          textContent: 'slowed down',
+          attributes: {
+            href: 'https://economy2030.resolutionfoundation.org/reports/changing-jobs/'
+          }
+        },{
+          tagName: 'span',
+          textContent: ', a job “stickiness” that is associated with a less dynamic labour market.'
+        }]
       },{
         tagName: 'p',
-        textContent: 'Even directly employed workers often have little say over the conditions of their work. The pace of work is one indicator of this. In the most recent Skills and Employment Survey (which has recorded the views of workers about their work since the mid 1980s), found that almost ',
+        textContent: 'In secure work, even directly employed workers often have little say over the conditions of their work. The pace of work is one indicator of this. In the most recent Skills and Employment Survey (which has recorded the views of workers about their work since the mid 1980s), found that almost ',
         children: [
           {
             tagName: 'a',
@@ -370,11 +380,6 @@ Dashboards.board('dashboard-intro', {
     }
   }]
 });
-
-
-
-
-
 
 
 </script>
