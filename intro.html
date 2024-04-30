@@ -1,7 +1,6 @@
 <div id="dashboard-intro"></div>
 
 <style>
-  <style>
 @import url("https://code.highcharts.com/dashboards/css/dashboards.css");
 @import url("https://code.highcharts.com/css/highcharts.css");
 @import url("https://code.highcharts.com/dashboards/css/datagrid.css");
@@ -128,7 +127,7 @@ body h3 {
 #bucket-1-col-0,
 #bucket-2-col-0,
 #bucket-3-col-0 {
-    height: 600px;
+    height: 800px;
 }
 
 #bucket-1,
@@ -175,8 +174,6 @@ body h3 {
         flex: 1 1 100%;
     }
 }
-
-</style>
 </style>
 
 <script>
@@ -217,7 +214,7 @@ Dashboards.board('dashboard-intro', {
     },
     {
       tagName: 'p',
-      textContent: 'More people in Britian are in work than ever before and the ',
+      textContent: 'More people in Britain are in work than ever before and the ',
       children: [
         {
           tagName: 'a',
@@ -228,7 +225,7 @@ Dashboards.board('dashboard-intro', {
         },
         {
           tagName: 'span',
-          textContent: ' in their work.  While the British economy has proved effective at generating employment, this has often come at '
+          textContent: ' in their work.  While the British economy has proved effective at generating employment, this has often come at the '
         },{
           tagName: 'a',
           textContent: 'cost of security, quality and pay',
@@ -275,8 +272,16 @@ Dashboards.board('dashboard-intro', {
         }]
       },{
         tagName: 'p',
-        textContent: 'Insecure work is a persistent problem, with 3.9 million workers on zero-hours contracts, outsourced, casual, or agency workers and the low-paid self-employed. Conversely, if many now have insecure and volatile employment, worker job mobility has also ',
+        textContent: 'Insecure work is a persistent problem, with ',
         children: [{
+          tagName: 'a',
+          textContent: '3.9 million workers',
+          attributes: {
+            href: 'https://www.tuc.org.uk/research-analysis/reports/insecure-work-2023'
+          }},{
+            tagName: 'span',
+            textContent: 'on zero-hours contracts, outsourced, casual, or agency workers and the low-paid self-employed. Conversely, if many now have insecure and volatile employment, worker job mobility has               also '},
+           {
           tagName: 'a',
           textContent: 'slowed down',
           attributes: {
@@ -288,7 +293,7 @@ Dashboards.board('dashboard-intro', {
         }]
       },{
         tagName: 'p',
-        textContent: 'In secure work, even directly employed workers often have little say over the conditions of their work. The pace of work is one indicator of this. In the most recent Skills and Employment Survey (which has recorded the views of workers about their work since the mid 1980s), found that almost ',
+        textContent: 'Even in secure work, workers often have little say over the conditions of their work. The pace of work is one indicator of this. In the most recent Skills and Employment Survey (which has recorded the views of workers about their work since the mid 1980s), found that almost ',
         children: [
           {
             tagName: 'a',
@@ -317,10 +322,10 @@ Dashboards.board('dashboard-intro', {
         ]
       },{
         tagName: 'p',
-        textContent: 'Given these problems, the political question is how can the reality of contemporary work generate a politics capable of its transformation?'
+        textContent: 'Given these problems, the political question is how can the reality of contemporary work generate a politics capable of its transformation? By better understanding work, we are better equipped to transform it.'
       },{
         tagName: 'p',
-        textContent: 'In this new data dashboard, Common Wealth’s Centre for Democratising Work assesses the state of contemporary work through three ongoing data focuses: the relative power of labour and capital, working time and work quality. By better understanding work, we are better equipped to transform it. '
+        textContent: 'In this new data dashboard, Common Wealth’s Centre for Democratising Work assesses the state of contemporary work through three ongoing data focuses: the relative power of labour and capital, working time, and work quality.'
       }
     ]
   },{
@@ -328,19 +333,26 @@ Dashboards.board('dashboard-intro', {
     cell: 'bucket-1',
     elements: [
       {
-        tagName: 'h2',
-        textContent: 'The relative power of labour and capital'
-      },{
-        tagName: 'p',
-        textContent: 'This section explores union density over time, wage growth and dividends over time and collective bargaining agreements by industry.'
-      },{
         tagName: 'a',
-        textContent: 'Explore in more detail',
-          attributes: {
+        textContent: 'The Relative Power of Labour and Capital',
+        attributes: {
             href: 'https://codepen.io/sophief_common_wealth/full/QWPobVR'
           }
+      },{
+        tagName: 'p',
+        textContent: 'This section explores union density over time, wage growth and dividend payments over time and collective bargaining agreements by industry.'
       }
-    ]
+    ],
+    events: {
+        mouseOver: function () {
+            // Change the background color of #bucket-1 on mouseover
+            document.getElementById('bucket-1').style.backgroundColor = '#666666';
+        },
+        mouseOut: function () {
+            // Reset the background color when mouse leaves
+            document.getElementById('bucket-1').style.backgroundColor = ''; // Reset to default
+        }
+    }
   }, {
     cell: 'bucket-1-col-0',
     type: 'Highcharts',
@@ -353,7 +365,7 @@ Dashboards.board('dashboard-intro', {
       align: 'left'
     },
     subtitle: {
-      text:'Labour compensation, dividend income. Indexed 1988 = 100, four-quarter trailing average, UK, 1988-2023',
+      text:'Hourly labour compensation vs dividend payments by private non-financial corporations, CPI-adjusted, indexed 1988=100, 4-quarter trailing average, UK, 1988-2023',
       align: 'left'
     },
     yAxis: {
@@ -363,8 +375,7 @@ Dashboards.board('dashboard-intro', {
     tooltip: {
       formatter: function () {
         return '<b>' + Highcharts.dateFormat('%B %Y', this.x) + '</b><br/>' +
-          '<b>' + this.series.name + '</b><br/>' +
-          'Value: ' + Highcharts.numberFormat(this.y, 1); // Round to 1 decimal place
+          '<b>' + this.series.name + ':</b> ' + Highcharts.numberFormat(this.y, 1); // Round to 1 decimal place
       }
     },
     legend: {
@@ -388,17 +399,14 @@ Dashboards.board('dashboard-intro', {
     cell: 'bucket-2',
     elements: [
       {
-        tagName: 'h2',
-        textContent: 'Working Time'
-      },{
-        tagName: 'p',
-        textContent: 'This section explores underemployment, total hours worked, and the distribution of unpaid overtime.'
-      },{
         tagName: 'a',
-        textContent: 'Explore in more detail',
+        textContent: 'Working Time',
           attributes: {
             href: 'https://codepen.io/sophief_common_wealth/full/KKYEdVd'
           }
+      },{
+        tagName: 'p',
+        textContent: 'This section explores underemployment, overemployment and total hours worked.'
       }
     ]
   },{
@@ -409,7 +417,7 @@ Dashboards.board('dashboard-intro', {
       type: 'line'
     },
     title: {
-      text:'Average weekly hours worked',
+      text:'The 2010s reversed the long-running trend of ever greater leisure and less work',
       align: 'left'
     },
     subtitle: {
@@ -442,18 +450,15 @@ Dashboards.board('dashboard-intro', {
     cell: 'bucket-3',
     elements: [
       {
-        tagName: 'h2',
-        textContent: 'Work Quality'
-      },
-      {
-        tagName: 'p',
-        textContent: 'This section explores pay, specifically the prevalence of low pay, career progression and worker involvement.'
-      },{
         tagName: 'a',
-        textContent: 'Explore in more detail',
+        textContent: 'Work Quality',
           attributes: {
             href: 'https://codepen.io/sophief_common_wealth/full/yLrwYOO'
           }
+      },
+      {
+        tagName: 'p',
+        textContent: 'This section explores low pay, disparities in pay and career progression opportunities.'
       }]
   },{
     cell: 'bucket-3-col-0',
@@ -472,11 +477,11 @@ Dashboards.board('dashboard-intro', {
       enabled: false 
      },
     title: {
-      text:'Proportion of workers on low pay vs proportion of workers who believe they have good career progression, by industry',
+      text:'Industries with few career progression opportunities also have higher incidence of low pay',
       align: 'left'
     },
     subtitle: {
-      text:'The size of the bubble represents the number of employees in a given industry',
+      text:'Incidence of low pay vs worker-assessed career progression opportunities, UK, 2022. Bubble size = workforce size',
       align: 'left'
     },    
     xAxis: {
@@ -558,6 +563,28 @@ Dashboards.board('dashboard-intro', {
     }]
     }
   }]
+});
+
+document.addEventListener('mouseover', function(event) {
+    let targetElement = event.target;
+    while (targetElement && targetElement !== document) {
+        if (targetElement.id === 'bucket-1' || targetElement.id === 'bucket-2' || targetElement.id === 'bucket-3') {
+            targetElement.style.backgroundColor = '#9CA4FC';
+            break;
+        }
+        targetElement = targetElement.parentNode;
+    }
+});
+
+document.addEventListener('mouseout', function(event) {
+    let targetElement = event.target;
+    while (targetElement && targetElement !== document) {
+        if (targetElement.id === 'bucket-1' || targetElement.id === 'bucket-2' || targetElement.id === 'bucket-3') {
+            targetElement.style.backgroundColor = ''; // Reset to default
+            break;
+        }
+        targetElement = targetElement.parentNode;
+    }
 });
 
 
