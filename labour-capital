@@ -59,10 +59,6 @@
   fill: var(--cdw-secondary-turquoise);
 }
 
-* {
-  color: #333333; /* Set the color to your desired color code */
-}
-
 body {
   font-family: 'neue-haas-unica', san-serif;
 }
