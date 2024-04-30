@@ -7,7 +7,7 @@ Dashboards.board('lab-cap', {
       id: 'layout-1',
       rows: [{
         cells: [{
-          id: 'bucket-1'
+          id: 'bucket-1-1'
         }]
       },{
         cells: [{
@@ -32,7 +32,7 @@ Dashboards.board('lab-cap', {
   },
   components: [{
     type: 'HTML',
-    cell: 'bucket-1',
+    cell: 'bucket-1-1',
     elements: [
       {
         tagName: 'h1',
@@ -292,6 +292,7 @@ Dashboards.board('lab-cap', {
     ]
   }]
 });
+
 
 
 
