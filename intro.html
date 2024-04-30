@@ -1,7 +1,7 @@
 <div id="dashboard-intro"></div>
 
 <script>
-Dashboards.board('dashboard-intro', {
+  Dashboards.board('container', {
   gui: {
     layouts: [{
       id: 'layout-1',
@@ -194,11 +194,6 @@ Dashboards.board('dashboard-intro', {
     exporting: {
       enabled: false 
      },
-    xAxis: {
-      labels: {
-        step:1
-      }
-    },
       data: {
         csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/ONS%20wages%20vs%20dividends_highcharts.csv'
       }
@@ -381,7 +376,6 @@ Dashboards.board('dashboard-intro', {
     }
   }]
 });
-
 
 
 </script>
