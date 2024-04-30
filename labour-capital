@@ -178,7 +178,7 @@ body h3 {
 </style>
 
 <script>
-Dashboards.board('container', {
+Dashboards.board('lab-cap', {
   gui: {
     layouts: [{
       id: 'layout-1',
