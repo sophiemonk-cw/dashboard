@@ -160,8 +160,7 @@ Dashboards.board('dashboard-intro', {
     type: 'Highcharts',
     chartOptions: {
       chart: {
-      type: 'line',
-      zoomType: 'xy'
+      type: 'line'
     },
     title: {
       text:'Dividends have far outpaced stagnant pay & investment',
@@ -194,11 +193,6 @@ Dashboards.board('dashboard-intro', {
     exporting: {
       enabled: false 
      },
-    xAxis: {
-      labels: {
-        step:1
-      }
-    },
       data: {
         csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/ONS%20wages%20vs%20dividends_highcharts.csv'
       }
@@ -226,8 +220,7 @@ Dashboards.board('dashboard-intro', {
     type: 'Highcharts',
     chartOptions: {
       chart: {
-      type: 'line',
-      zoomType: 'xy'
+      type: 'line'
     },
     title: {
       text:'Average weekly hours worked. UK.',
@@ -282,8 +275,7 @@ Dashboards.board('dashboard-intro', {
     chartOptions: {
       chart: {
         type: 'bubble',
-        plotBorderWidth: 1,
-        zoomType: 'xy'
+        plotBorderWidth: 1
     },
 
     legend: {
@@ -381,7 +373,6 @@ Dashboards.board('dashboard-intro', {
     }
   }]
 });
-
 
 
 </script>
