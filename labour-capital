@@ -82,10 +82,9 @@ Dashboards.board('lab-cap', {
       title: {text: ''}
     },
     tooltip: {
-      formatter: function () {
-        return '<b>' + Highcharts.dateFormat('%B %Y', this.x) + '</b><br/>' +
-          '<b>' + this.series.name + ':</b> ' + Highcharts.numberFormat(this.y, 1); // Round to 1 decimal place
-      }
+      shared: true,
+      valueDecimals: 1,
+      crosshairs: true
     },
     legend: {
       enabled: false
@@ -230,8 +229,7 @@ Dashboards.board('lab-cap', {
     chartOptions: {
       chart: {
         marginRight: 200,
-        type: 'bar',
-        zoomType: 'xy'
+        type: 'bar'
     },
     title: {
       text:'Collective bargaining agreements are lowest in the food and accommodation industries',
@@ -269,9 +267,9 @@ Dashboards.board('lab-cap', {
       data: {
   csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/collective%20bargaining%20industry.csv',
     seriesMapping: [{
-        x: 0, // Name of the data point
-        y: 1, // Value of the data point
-        color: 2 // Color of the data point
+        x: 1, // Name of the data point
+        y: 2, // Value of the data point
+        color: 3 // Color of the data point
       }]
         } 
     }
@@ -294,6 +292,8 @@ Dashboards.board('lab-cap', {
     ]
   }]
 });
+
+
 
 
 
