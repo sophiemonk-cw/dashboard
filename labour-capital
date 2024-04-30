@@ -59,6 +59,10 @@
   fill: var(--cdw-secondary-turquoise);
 }
 
+* {
+  color: #333333; /* Set the color to your desired color code */
+}
+
 body {
   font-family: 'neue-haas-unica', san-serif;
 }
@@ -75,7 +79,7 @@ body h2 {
 }
 
 body p {
-  padding: 1px;
+  padding: 5px;
   font-size: 14px;
 }
 
@@ -100,14 +104,11 @@ body h3 {
     font-family: 'neue-haas-unica', san-serif;
 }
 
-.highcharts-dashboards-row {
-    padding: 3px;
-}
-
-.highcharts-dashboards-component {
+/* .highcharts-dashboards-cell, */
+.highcharts-dashboards-component{
   padding:8px;
   border-radius: 8px;
-  margin: 5px;
+  margin: 1px;
 }
 
 .highcharts-caption {
@@ -121,59 +122,53 @@ body h3 {
 }
 
 
-
 /* RESPONSIVENESS */
 
 #bucket-1-col-0,
-#bucket-2-col-0,
-#bucket-3-col-0 {
-    height: 600px;
-}
-
-#bucket-1,
-#bucket-2,
-#bucket-3, {
-    height: 300px;
+#bucket-1-col-3,
+#bucket-1-col-4 {
+    height: 400px;
 }
 
 /* LARGE */
 @media (max-width: 1200px) {
-    #bucket-3-col-0,
-    #bucket-2-col-0,
     #bucket-1-col-0,
-    #bucket-1,
-    #bucket-2,
-    #bucket-3,
-    #title {
+    #bucket-1-col-1,
+    #bucket-1-col-2,
+    #bucket-1-col-3,
+    #bucket-1-col-4,
+    #bucket-1-col-5,
+    #bucket-1 {
         flex: 1 1 100%;
     }
 }
   
 /* MEDIUM */
 @media (max-width: 992px) {
-    #bucket-3-col-0,
-    #bucket-2-col-0,
     #bucket-1-col-0,
-    #bucket-1,
-    #bucket-2,
-    #bucket-3,
-    #title {
+    #bucket-1-col-1,
+    #bucket-1-col-2,
+    #bucket-1-col-3,
+    #bucket-1-col-4,
+    #bucket-1-col-5,
+    #bucket-1 {
         flex: 1 1 100%;
     }
 }
   
 /* SMALL */
 @media (max-width: 576px) {
-    #bucket-3-col-0,
-    #bucket-2-col-0,
     #bucket-1-col-0,
-    #bucket-1,
-    #bucket-2,
-    #bucket-3,
-    #title{
+    #bucket-1-col-1,
+    #bucket-1-col-2,
+    #bucket-1-col-3,
+    #bucket-1-col-4,
+    #bucket-1-col-5,
+    #bucket-1 {
         flex: 1 1 100%;
     }
 }
+
 
 </style>
 
@@ -184,159 +179,58 @@ Dashboards.board('lab-cap', {
       id: 'layout-1',
       rows: [{
         cells: [{
-          id: 'title'
-        }]
-      },{
-        cells: [{
           id: 'bucket-1'
-        },{
-          id: 'bucket-2'
-        },{
-          id: 'bucket-3'
         }]
       },{
         cells: [{
           id: 'bucket-1-col-0'
         }, {
-          id: 'bucket-2-col-0'
-        },{
-          id: 'bucket-3-col-0'
+          id: 'bucket-1-col-1'
+        }]
+      },{
+        cells: [{
+          id: 'bucket-1-col-2'
+        }, {
+          id: 'bucket-1-col-3'
+        }]
+      },{
+        cells: [{
+          id: 'bucket-1-col-4'
+        }, {
+          id: 'bucket-1-col-5'
         }]
       }]
     }]
   },
   components: [{
-    cell: 'title',
-    type: 'HTML',
-    elements: [
-      {
-      tagName: 'h1',
-      textContent: 'What Is Work in Contemporary Britain Like?'
-    },
-    {
-      tagName: 'p',
-      textContent: 'More people in Britian are in work than ever before and the ',
-      children: [
-        {
-          tagName: 'a',
-          textContent: 'majority of workers report finding meaning',
-          attributes: {
-            href: 'https://yougov.co.uk/economy/articles/27994-quarter-british-workers-find-jobs-lack-meaning'
-          }
-        },
-        {
-          tagName: 'span',
-          textContent: ' in their work.  While the British economy has proved effective at generating employment, this has often come at '
-        },{
-          tagName: 'a',
-          textContent: 'cost of security, quality and pay',
-          attributes: {
-            href: 'https://economy2030.resolutionfoundation.org/reports/low-pay-britain-2023/'
-          }
-        },{
-          tagName: 'span',
-          textContent: '.'
-        }        
-      ]
-    },
-    {
-      tagName: 'p',
-      textContent: 'Many workers have very little say over how and how much they work. Workers are less likely to be covered by a collective bargaining agreement than in recent decades, and with ',
-      children: [
-        {
-          tagName: 'a',
-          textContent: 'lower union density',
-          attributes: {
-            href: 'https://www.cipd.org/uk/knowledge/factsheets/trade-unions-factsheet/#membershiplevels'
-          }
-        },
-        {
-          tagName: 'span',
-          textContent: ' and less union power, workers lose out when it comes to pay and conditions. There are concerns too, about the intensification of work — the TUC found that three out of five workers feel exhausted by the end of each day.'
-        }]
-    },{
-        tagName: 'p',
-        textContent: 'And above all, the enormous wealth and productive capacity of labour — the direction and use of the economic surplus they generate — remains beyond their control.'
-      },{
-        tagName: 'p',
-        textContent: 'Compensation for work is often bad; British wages are low and stagnant, despite the UK being the sixth largest national economy globally. Moreover, the rise of bogus self-employment (when workers are compelled to be self-employed when they are entitled to employee status) has left many self-employed workers lacking basic workplace rights, like sick pay and parental leave, and 1.88 million self-employed workers (of the 4.3 million total self-employed population) earn less than ',
-        children: [
-        {
-          tagName: 'a',
-          textContent: '2/3 of the median wage',
-          attributes: {
-            href: 'https://www.tuc.org.uk/research-analysis/reports/insecure-work-2023'
-          }
-        },{
-          tagName: 'span',
-          textContent: '.'
-        }]
-      },{
-        tagName: 'p',
-        textContent: 'Insecure work is a persistent problem, with 3.9 million workers on zero-hours contracts, outsourced, casual, or agency workers and the low-paid self-employed. Conversely, if many now have insecure and volatile employment, worker job mobility has also ',
-        children: [{
-          tagName: 'a',
-          textContent: 'slowed down',
-          attributes: {
-            href: 'https://economy2030.resolutionfoundation.org/reports/changing-jobs/'
-          }
-        },{
-          tagName: 'span',
-          textContent: ', a job “stickiness” that is associated with a less dynamic labour market.'
-        }]
-      },{
-        tagName: 'p',
-        textContent: 'In secure work, even directly employed workers often have little say over the conditions of their work. The pace of work is one indicator of this. In the most recent Skills and Employment Survey (which has recorded the views of workers about their work since the mid 1980s), found that almost ',
-        children: [
-          {
-            tagName: 'a',
-            textContent: 'half of workers surveyed',
-            attributes: {
-            href: 'https://www.cardiff.ac.uk/news/view/1309395-harder-work-and-less-say-british-workers-under-pressure'
-          }
-          },{
-            tagName: 'span',
-            textContent: ' strongly agreed that their job requires them to work very hard compared to just a third of workers in 1992.'
-          }
-        ]
-      },{
-        tagName: 'p',
-        textContent: 'Health problems associated with work, once in decline, plateaued in the 1990s, and have now risen, post-pandemic. In 2023, ',
-        children: [{
-          tagName: 'a',
-          textContent: '1.8 million workers',
-            attributes: {
-            href: 'https://www.hse.gov.uk/statistics/overview.htm'
-          }
-        },{
-          tagName: 'span',
-          textContent: ' reported suffering from a work-related illness.'
-        }          
-        ]
-      },{
-        tagName: 'p',
-        textContent: 'Given these problems, the political question is how can the reality of contemporary work generate a politics capable of its transformation?'
-      },{
-        tagName: 'p',
-        textContent: 'In this new data dashboard, Common Wealth’s Centre for Democratising Work assesses the state of contemporary work through three ongoing data focuses: the relative power of labour and capital, working time and work quality. By better understanding work, we are better equipped to transform it. '
-      }
-    ]
-  },{
     type: 'HTML',
     cell: 'bucket-1',
     elements: [
       {
-        tagName: 'h2',
-        textContent: 'The relative power of labour and capital'
+        tagName: 'h1',
+        textContent: 'The Relative Power of Labour and Capital'
+      },
+      {
+        tagName: 'p',
+        textContent: 'Britain has some of the most restrictive trade union legislation in Europe. Already beleaguered, trade union rights are once again under attack in the form of the new ',
+        children: [
+        {
+          tagName: 'a',
+          textContent: 'Strike (Minimum Service Levels) Act 2023',
+          attributes: {
+            href: 'https://www.common-wealth.org/centre-for-democratising-work/interview-polly'
+          }
+        },{
+          tagName: 'span',
+          textContent: '. Organised labour flexed its muscles during the recent strike wave, but, in most sectors, its power remains much diminished.'
+        }]
+      },
+      {
+        tagName: 'p',
+        textContent: 'Workers and capital struggle over the value produced in a workplace or company and the conditions of work. Work itself is shaped by these dual battles. In the present moment, new forms of digital surveillance and monitoring represent a key front of this struggle.'
       },{
         tagName: 'p',
-        textContent: 'This section explores union density over time, wage growth and dividends over time and collective bargaining agreements by industry.'
-      },{
-        tagName: 'a',
-        textContent: 'Explore in more detail',
-          attributes: {
-            href: 'https://codepen.io/sophief_common_wealth/full/QWPobVR'
-          }
+        textContent: 'This section explores union density over time, wage growth and dividend payments over time and collective bargaining agreements by industry.'
       }
     ]
   }, {
@@ -344,14 +238,15 @@ Dashboards.board('lab-cap', {
     type: 'Highcharts',
     chartOptions: {
       chart: {
-      type: 'line'
+      type: 'line',
+      zoomType: 'xy'
     },
     title: {
       text:'Dividends have far outpaced pay',
       align: 'left'
     },
     subtitle: {
-      text:'Labour compensation, dividend income. Indexed 1988 = 100, four-quarter trailing average, UK, 1988-2023',
+      text:'Hourly labour compensation vs dividend payments by private non-financial corporations, CPI-adjusted, indexed 1988=100, 4-quarter trailing average, UK, 1988-2023',
       align: 'left'
     },
     yAxis: {
@@ -361,18 +256,15 @@ Dashboards.board('lab-cap', {
     tooltip: {
       formatter: function () {
         return '<b>' + Highcharts.dateFormat('%B %Y', this.x) + '</b><br/>' +
-          '<b>' + this.series.name + '</b><br/>' +
-          'Value: ' + Highcharts.numberFormat(this.y, 1); // Round to 1 decimal place
+          '<b>' + this.series.name + ':</b> ' + Highcharts.numberFormat(this.y, 1); // Round to 1 decimal place
       }
     },
     legend: {
       enabled: false
     },credits: {
       enabled: true,
-      href: 'https://www.common-wealth.org/publications/the-big-buyback',
-      text: 'Source: Common Wealth analysis of ONS'
-    },caption:{
-      text:'This figure compares employee compensation (across all corporations, including the public sector) to dividend payments by private non-financial corporations, indexed to 1988, the earliest year available. From 1988 to 2019, the eve of the pandemic, dividend payments by UK private non-financial companies grew 2.5x faster than employee compensation (including pension contributions) each year on average. During 2000-19 it grew 5.5x faster. If worker compensation and dividend payments had grown at an equal pace over 1988-2019 (i.e. at 1.9 per cent per year each, instead of the 4.2 per cent for dividends vs 1.6 per cent for pay that actually transpired), then hourly labour compensation would have been 8.9 per cent greater going into the pandemic.'
+      text: 'Source: Common Wealth analysis of ONS',
+      href: 'https://www.common-wealth.org/publications/the-big-buyback'
     },
     exporting: {
       enabled: false 
@@ -383,179 +275,198 @@ Dashboards.board('lab-cap', {
     }
   },{
     type: 'HTML',
-    cell: 'bucket-2',
+    cell: 'bucket-1-col-1',
     elements: [
       {
         tagName: 'h2',
-        textContent: 'Working Time'
-      },{
+        textContent: 'Wages vs payouts'
+      },
+      {
         tagName: 'p',
-        textContent: 'This section explores underemployment, total hours worked, and the distribution of unpaid overtime.'
-      },{
-        tagName: 'a',
-        textContent: 'Explore in more detail',
+        textContent: 'Dividends are paid to shareholders out of post-tax profits. Since investment is often risky, the most reliable way to increase shareholder value is to boost those profits by suppressing workers’ pay. In this way, the balance of wages to payouts might be said to represent the balance of power between workers and capital; it is an index of distributional struggle. Given this, it is perhaps not surprising that dividend payments have particularly taken off since the “shareholder revolution” of the 1980s, which empowered investors and management ',
+        children: [{
+          tagName: 'a',
+          textContent: 'at the expense of ordinary workers',
           attributes: {
-            href: 'https://codepen.io/sophief_common_wealth/full/KKYEdVd'
+            href: 'https://www.common-wealth.org/publications/wages-and-dividends'
+          }},{
+            tagName: 'span',
+            textContent: ', '
+          },{
+          tagName: 'a',
+          textContent: 'reshaping the corporate form',
+          attributes: {
+            href: 'https://rooseveltinstitute.org/publications/disgorge-the-cash/'
+          }},{
+          tagName: 'span',
+          textContent: ' into '
+          },{
+          tagName: 'a',
+          textContent: 'an engine of wealth extraction',
+          attributes: {
+            href: 'https://www.common-wealth.org/publications/the-big-buyback'
+          }},{
+            tagName: 'span',
+            textContent: '.'
+          }]},{
+        tagName: 'p',
+        textContent: 'This chart compares employee compensation (across all corporations, including the public sector) to dividend payments by private non-financial corporations, relative to their respective 1988 levels, the earliest year available. From 1988 to 2019, the eve of the pandemic, dividend payments by UK private non-financial companies grew 2.5x faster than employee compensation (including pension contributions) each year on average. During 2000-19 it grew 5.5x faster. If worker compensation and dividend payments had grown at an equal pace over 1988-2019 (i.e. at 1.9 per cent per year each, instead of the 4.2 per cent for dividends vs 1.6 per cent for pay that actually transpired), then hourly labour compensation would have been 8.9 per cent greater going into the pandemic. Only since the onset of the gas crisis of 2022 has pay fared better than dividends.'
           }
+    ]
+  },{
+    type: 'HTML',
+    cell: 'bucket-1-col-2',
+    elements: [
+      {
+        tagName: 'h2',
+        textContent: 'Trade union density and income inequality'
+      },
+      {
+        tagName: 'p',
+        textContent: 'The long downward trend of trade union membership is well known. In 2022, numbers were the lowest they have been since they were recorded in their present form (since 1995). Not since before the First World War — that is, before women and working-class men could vote — has the UK had such low unionisation. A lower percentage of workers in unions (referred to as union density) is both symptom and cause of a decline in workers’ power. Trade unions and collective bargaining have been ',
+        children: [{
+          tagName: 'a',
+          textContent: 'shown',
+          attributes: {
+            href: 'https://academic.oup.com/qje/article/136/3/1325/6219103'
+          }},{
+          tagName: 'span',
+          textContent: ' to '
+        },{
+          tagName: 'a',
+          textContent: 'reduce income inequality',
+          attributes: {
+            href: 'https://www.bruegel.org/analysis/collective-bargaining-associated-lower-income-inequality'
+          }},{
+          tagName: 'span',
+          textContent: '.'
+        }]
+      },
+      {
+        tagName: 'p',
+        textContent: 'UK union density hovered above 40 per cent through the postwar decades, and jumped during the militant 1970s. Its peak in 1979, above 50 per cent, coincided with the lowest income inequality in British history. (Almost every single available measure of inequality reaches its lowest point between 1977 and 1980.) This chart plots union density against the income share of the top one per cent, over 120 years. As union density has collapsed since 1979, income inequality has skyrocketed, even if still short of Victorian levels. This upward trend was interrupted by the financial crisis, which hit the incomes of those high earners at the heart of the UK’s finance-centric economic model.'
       }
     ]
   },{
-    cell: 'bucket-2-col-0',
+    cell: 'bucket-1-col-3',
     type: 'Highcharts',
     chartOptions: {
       chart: {
       type: 'line'
     },
     title: {
-      text:'Average weekly hours worked',
+      text:'Union density inversely correlates with income inequality',
       align: 'left'
     },
     subtitle: {
-      text:'Average weekly hours worked by part-time and full-time employees, rolling three-monthly figures, UK 1995-2023',
+      text:'% of employees in trade unions, top 1% income share is the % of total income going to the top percentile of earners, UK, 1990-2022',
       align: 'left'
     },
-    credits: {
-      enabled: true,
-      text: 'Source: ONS',
-      href: 'https://www.ons.gov.uk/',
-    },caption:{
-      text:'This chart shows the seasonally adjusted, weekly hours worked per worker between January 1995 and December 2023. Between 1995 and 2010, there was a relatively steady rate of decline in average weekly hours, from 33.3 hours to 31.3 hours in Apr-Jun 2011. This long-term pattern is observed in most advanced economies as a result of productivity improvement and labour-saving technologies. From 20115 until the Covid-19 pandemic, however, with labour’s bargaining power battered by austerity and anti-union reforms,6 the average weekly hours worked increased to 32.3 hours. In the latest quarter, October to December 2023 the average weekly hours worked was 31.5 hours'
-    },
     yAxis: {
-      min:25,
-      title: {text: 'Hours'}
-    },
-    legend: {
-      enabled: false
+      title: {text: ''},
+      labels: {
+            formatter: function () {
+                return this.value * 100 + '%';
+            }
+    }},
+    tooltip: {
+      formatter: function () {
+        return '<b>' + this.x + '</b><br/>' +
+          '<b>' + this.series.name + ': '+ '</b>' + Highcharts.numberFormat(this.y*100, 1) + '%'; // Round to 1 decimal place
+      }
+    },credits: {
+      enabled: true,
+      text: 'Source: Common Wealth based on BEIS, Bank of England and World Inequality Database',
+      href: 'https://www.gov.uk/government/statistics/trade-union-statistics-2022'
     },
     exporting: {
       enabled: false 
      },
-      data: {
-        csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/avg%20hours.csv'
+    xAxis: {
+      labels: {
+        step:1
       }
+    },
+    plotOptions: {
+      line: {
+        connectNulls: true
+    }
+    },
+    data: {
+      csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/union%20density%20vs%20inequality_highcharts.csv'
+    }
     }
   },{
-    type: 'HTML',
-    cell: 'bucket-3',
-    elements: [
-      {
-        tagName: 'h2',
-        textContent: 'Work Quality'
-      },
-      {
-        tagName: 'p',
-        textContent: 'This section explores pay, specifically the prevalence of low pay, career progression and worker involvement.'
-      },{
-        tagName: 'a',
-        textContent: 'Explore in more detail',
-          attributes: {
-            href: 'https://codepen.io/sophief_common_wealth/full/yLrwYOO'
-          }
-      }]
-  },{
-    cell: 'bucket-3-col-0',
+    cell: 'bucket-1-col-4',
     type: 'Highcharts',
     chartOptions: {
       chart: {
-        type: 'bubble',
-        plotBorderWidth: 1
+        marginRight: 200,
+        type: 'bar',
+        zoomType: 'xy'
     },
-
-    legend: {
-        enabled: false
-    },
-  
-    exporting: {
-      enabled: false 
-     },
     title: {
-      text:'Proportion of workers on low pay vs proportion of workers who believe they have good career progression, by industry',
+      text:'Collective bargaining agreements are lowest in the food and accommodation industries',
       align: 'left'
     },
     subtitle: {
-      text:'The size of the bubble represents the number of employees in a given industry',
+      text:'Percentage of employees with a collective agreement between employer and trade union, UK, 2022',
       align: 'left'
-    },    
-    xAxis: {
-        gridLineWidth: 1,
-        min: 35,
-        max: 75,
-        title: {
-            text: 'Career progression opportunities'
-        },
-        labels: {
-            format: '{value} %'
-        },
-        lineColor: '#BBBBBB',
-        tickColor: '#BBBBBB',
-        accessibility: {
-            rangeDescription: 'Range: 0 to 60%.'
-        }
+    },
+    legend: {
+      enabled: false
     },credits: {
       enabled: true,
       text: 'Source: ONS',
-      href: 'https://www.ons.gov.uk/',
-        },
-      caption: {
-        text: 'The accommodation and food service industry has the highest proportion of employees on low pay (35.3 per cent) by a margin — the next highest low pay industry, arts, entertainment and recreation, is 15.2 percentage points lower — and 42.7 per cent of employees feel there are opportunities for career progression. Financial and insurance activities is the industry with the best outcomes where 63.6 per cent of employees agree or strongly agree that their job offers good opportunities for career progression.'
+      href: 'https://www.ons.gov.uk/'
+    },
+    exporting: {
+      enabled: false 
+     },
+    xAxis: {
+      labels: {
+        step:1
+      }
+    }, caption: {
+        text: 'Note: Two industries, “Mining and Quarrying” and “Agriculture, forestry and fishing”, have been removed from the chart because the data for these industries is marked as unreliable by the official statistics.'
+      },yAxis: {
+      title: {
+        text: null 
       },
-    yAxis: {
-        startOnTick: true,
-        min: 0,
-        max: 40,
-        endOnTick: false,
-        title: {
-            text: 'Low Pay'
-        },
-        labels: {
-            format: '{value} %'
-        },
-        maxPadding: 0.2
-    },
-
-    tooltip: {
-        useHTML: true,
-        headerFormat: '<table>',
-        pointFormat: '<tr><th colspan="2"><h3>{point.name}</h3></th></tr>' +
-            '<tr><th>Career progression opportunities:</th><td>{point.x}%</td></tr>' +
-            '<tr><th>Low Pay:</th><td>{point.y}%</td></tr>' +
-            '<tr><th>Workforce population:</th><td>{point.z}</td></tr>',
-        footerFormat: '</table>'
-    },
-    plotOptions: {
-        bubble: {
-            dataLabels: {
-                enabled: true,
-                inside: false,
-                format: '{point.name}'
-            }
-        }
-    },
-    series: [{
-      data: [
-    { x: 42.7, y: 35.3, z: 1557812.5, name: 'Accommodation and food service activities' },
-    { x: 44.6, y: 18.2, z: 1431996.75, name: 'Administrative and support service activities' },
-    { x: 46, y: 20.1, z: 1785133.75, name: 'Arts, entertainment and recreation' },
-    { x: 58.7, y: 7.8, z: 2142423.5, name: 'Construction' },
-    { x: 52.6, y: 14.6, z: 3426590.75, name: 'Education' },
-    { x: 64.2, y: 6.2, z: 599269.75, name: 'Electricity, gas, steam and air conditioning supply' },
-    { x: 67.8, y: 3.7, z: 1424122.25, name: 'Financial and insurance activities' },
-    { x: 55.7, y: 13.4, z: 4498645.25, name: 'Human health and social work activities' },
-    { x: 64.7, y: 5.1, z: 1581115, name: 'Information and communication' },
-    { x: 50.5, y: 9.7, z: 2725924.5, name: 'Manufacturing' },
-    { x: 60.8, y: 5.6, z: 599269.75, name: 'Mining and quarrying' },
-    { x: 46.7, y: 16, z: 1785133.75, name: 'Other service activities' },
-    { x: 63.4, y: 6.1, z: 2677678.5, name: 'Professional, scientific and technical activities' },
-    { x: 61, y: 4.5, z: 2389726, name: 'Public administration and defence; compulsory social security' },
-    { x: 54.2, y: 5.6, z: 414173.25, name: 'Real estate activities' },
-    { x: 49.6, y: 11.6, z: 1519744, name: 'Transportation and storage' },
-    { x: 61.9, y: 7.6, z: 599269.75, name: 'Water supply, sewerage, waste management and remediation activities' },
-    { x: 48.1, y: 14.2, z: 3801044.75, name: 'Wholesale inc. motor' }
-        ]
-    }]
+      labels: {
+        step:1,
+      format: '{value} %'
+      }
+    },tooltip: {valueSuffix: '%'},
+      data: {
+  csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/collective%20bargaining%20industry.csv',
+    seriesMapping: [{
+        x: 0, // Name of the data point
+        y: 1, // Value of the data point
+        color: 2 // Color of the data point
+      }]
+        } 
     }
+  },{
+    type: 'HTML',
+    cell: 'bucket-1-col-5',
+    elements: [
+      {
+        tagName: 'h2',
+        textContent: 'Collective bargaining agreements'
+      },
+      {
+        tagName: 'p',
+        textContent: 'A collective bargaining agreement allows negotiations between unions and employers of pay and terms and conditions.  Coverage remains high in the public sector, but in most sectors, the majority of workers are not covered by a collective agreement.'
+      },
+      {
+        tagName: 'p',
+        textContent: 'Workers covered by a collective bargaining agreement varies by industry. The industry with the largest per cent of employees covered by a collective bargaining agreement is “Public administration and defence; compulsory social security”, with 56 per cent of employees covered. The “Accommodation and food service activities” industry has the lowest coverage, with only five per cent of employees covered by collective bargaining. Only two industries, Education and Public Administration, have more than half of their employees covered by a collective bargaining agreement. '
+      }
+    ]
   }]
 });
+
+
 
 </script>
