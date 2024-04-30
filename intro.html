@@ -203,31 +203,107 @@ Dashboards.board('dashboard-intro', {
     elements: [
       {
       tagName: 'h1',
-      textContent: 'What is work in contemporary Britain like?'
+      textContent: 'What Is Work in Contemporary Britain Like?'
     },
     {
       tagName: 'p',
-      textContent: 'More people in Britain are in work than ever before and the majority of workers report finding meaning in their work. While the British economy has proved effective at generating employment, this has often come at cost of security, quality, and pay. Many workers have very little say over how and how much they work. Workers are less likely to be covered by a ',
+      textContent: 'More people in Britian are in work than ever before and the ',
       children: [
         {
           tagName: 'a',
-          textContent: 'collective bargaining agreement',
+          textContent: 'majority of workers report finding meaning',
           attributes: {
-            href: 'https://example.com'
+            href: 'https://yougov.co.uk/economy/articles/27994-quarter-british-workers-find-jobs-lack-meaning'
           }
         },
         {
           tagName: 'span',
-          textContent: ' than in recent decades, and with lower union density and less union power, workers lose out when it comes to pay and conditions.'
-        }
+          textContent: ' in their work.  While the British economy has proved effective at generating employment, this has often come at '
+        },{
+          tagName: 'a',
+          textContent: 'cost of security, quality and pay',
+          attributes: {
+            href: 'https://economy2030.resolutionfoundation.org/reports/low-pay-britain-2023/'
+          }
+        },{
+          tagName: 'span',
+          textContent: '.'
+        }        
       ]
     },
     {
       tagName: 'p',
-      textContent: 'Given these problems, the political question is how can the reality of contemporary work generate a politics capable of its transformation?'
+      textContent: 'Many workers have very little say over how and how much they work. Workers are less likely to be covered by a collective bargaining agreement than in recent decades, and with ',
+      children: [
+        {
+          tagName: 'a',
+          textContent: 'lower union density',
+          attributes: {
+            href: 'https://www.cipd.org/uk/knowledge/factsheets/trade-unions-factsheet/#membershiplevels'
+          }
+        },
+        {
+          tagName: 'span',
+          textContent: ' and less union power, workers lose out when it comes to pay and conditions. There are concerns too, about the intensification of work — the TUC found that three out of five workers feel exhausted by the end of each day.'
+        }]
     },{
         tagName: 'p',
-        textContent: 'In this new data dashboard, Common Wealth’s Centre for Democratising Work assesses the state of contemporary work through three ongoing data focuses: The relative power of labour and capital Working time Work quality By better understanding work, we are better equipped to transform it.'
+        textContent: 'And above all, the enormous wealth and productive capacity of labour — the direction and use of the economic surplus they generate — remains beyond their control.'
+      },{
+        tagName: 'p',
+        textContent: 'Compensation for work is often bad; British wages are low and stagnant, despite the UK being the sixth largest national economy globally.'
+      },{
+        tagName: 'p',
+        textContent: 'Moreover, the rise of bogus self-employment (when workers are compelled to be self-employed when they are entitled to employee status) has left many self-employed workers lacking basic workplace rights, like sick pay and parental leave, and 1.88 million self-employed workers (of the 4.3 million total self-employed population) earn less than ',
+        children: [
+        {
+          tagName: 'a',
+          textContent: '2/3 of the median wage',
+          attributes: {
+            href: 'https://www.tuc.org.uk/research-analysis/reports/insecure-work-2023'
+          }
+        },{
+          tagName: 'span',
+          textContent: '.'
+        }]
+      },{
+        tagName: 'p',
+        textContent: 'CHECK THIS Insecure work is a persistent problem, with 3.9 million workers on zero-hours contracts, outsourced, casual, or agency workers and the low-paid self-employed. In secure work CHECK THIS'
+      },{
+        tagName: 'p',
+        textContent: 'Even directly employed workers often have little say over the conditions of their work. The pace of work is one indicator of this. In the most recent Skills and Employment Survey (which has recorded the views of workers about their work since the mid 1980s), found that almost ',
+        children: [
+          {
+            tagName: 'a',
+            textContent: 'half of workers surveyed',
+            attributes: {
+            href: 'https://www.cardiff.ac.uk/news/view/1309395-harder-work-and-less-say-british-workers-under-pressure'
+          }
+          },{
+            tagName: 'span',
+            textContent: ' strongly agreed that their job requires them to work very hard compared to just a third of workers in 1992.'
+          }
+        ]
+      },{
+        tagName: 'p',
+        textContent: 'Health problems associated with work, once in decline, plateaued in the 1990s, and have now risen, post-pandemic. In 2023, ',
+        children: [{
+          tagName: 'a',
+          textContent: '1.8 million workers',
+            attributes: {
+            href: 'https://www.hse.gov.uk/statistics/overview.htm'
+          }
+        },{
+          tagName: 'span',
+          textContent: ' reported suffering from a work-related illness.'
+        }          
+        ]
+      },{
+        tagName: 'p',
+        textContent: 'Given these problems, the political question is how can the reality of contemporary work generate a politics capable of its transformation?'
+      },{
+        tagName: 'p',
+        textContent: 'In this new data dashboard, Common Wealth’s Centre for Democratising Work assesses the state of contemporary work through three ongoing data focuses: the relative power of labour and capital, working time and work quality. By better understanding work, we are better equipped to transform it. '
       }
     ]
   },{
@@ -239,7 +315,7 @@ Dashboards.board('dashboard-intro', {
         textContent: 'The relative power of labour and capital'
       },{
         tagName: 'p',
-        textContent: 'This data focus explores the relative power that workers and capital have. Who is able to claim the surplus? Where are union protections and membership strongest, and (how) does that translate into better work?'
+        textContent: 'This section explores union density over time, wage growth and dividends over time and collective bargaining agreements by industry.'
       },{
         tagName: 'a',
         textContent: 'Click here to explore this topic in more detail',
@@ -279,6 +355,7 @@ Dashboards.board('dashboard-intro', {
       enabled: false
     },credits: {
       enabled: true,
+      href: 'https://www.common-wealth.org/publications/the-big-buyback',
       text: 'Source: Common Wealth analysis of ONS'
     },caption:{
       text:'This figure compares employee compensation (across all corporations, including the public sector) to dividend payments by private non-financial corporations, indexed to 1988, the earliest year available. From 1988 to 2019, the eve of the pandemic, dividend payments by UK private non-financial companies grew 2.5x faster than employee compensation (including pension contributions) each year on average. During 2000-19 it grew 5.5x faster. If worker compensation and dividend payments had grown at an equal pace over 1988-2019 (i.e. at 1.9 per cent per year each, instead of the 4.2 per cent for dividends vs 1.6 per cent for pay that actually transpired), then hourly labour compensation would have been 8.9 per cent greater going into the pandemic.'
@@ -295,15 +372,6 @@ Dashboards.board('dashboard-intro', {
         csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/ONS%20wages%20vs%20dividends_highcharts.csv'
       }
     }
-  },{
-    type: 'HTML',
-    cell: 'bucket-1-col-1',
-    elements: [
-      {
-        tagName: 'p',
-        textContent: 'This figure compares employee compensation (across all corporations, including the public sector) to dividend payments by private non-financial corporations, indexed to 1988, the earliest year available. From 1988 to 2019, the eve of the pandemic, dividend payments by UK private non-financial companies grew 2.5x faster than employee compensation (including pension contributions) each year on average. During 2000-19 it grew 5.5x faster. If worker compensation and dividend payments had grown at an equal pace over 1988-2019 (i.e. at 1.9 per cent per year each, instead of the 4.2 per cent for dividends vs 1.6 per cent for pay that actually transpired), then hourly labour compensation would have been 8.9 per cent greater going into the pandemic.'
-      }
-    ]
   },{
     type: 'HTML',
     cell: 'bucket-2',
@@ -340,7 +408,8 @@ Dashboards.board('dashboard-intro', {
     },
     credits: {
       enabled: true,
-      text: 'Source: ONS'
+      text: 'Source: ONS',
+      href: 'https://www.ons.gov.uk/',
     },caption:{
       text:'This chart shows the seasonally adjusted, weekly hours worked per worker between January 1995 and December 2023. Between 1995 and 2010, there was a relatively steady rate of decline in average weekly hours, from 33.3 hours to 31.3 hours in Apr-Jun 2011. This long-term pattern is observed in most advanced economies as a result of productivity improvement and labour-saving technologies. From 20115 until the Covid-19 pandemic, however, with labour’s bargaining power battered by austerity and anti-union reforms,6 the average weekly hours worked increased to 32.3 hours. In the latest quarter, October to December 2023 the average weekly hours worked was 31.5 hours'
     },
@@ -358,15 +427,6 @@ Dashboards.board('dashboard-intro', {
         csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/avg%20hours.csv'
       }
     }
-  }, {
-    type: 'HTML',
-    cell: 'bucket-2-col-1',
-    elements: [
-      {
-        tagName: 'p',
-        textContent: 'This chart shows the seasonally adjusted, weekly hours worked per worker between January 1995 and December 2023. Between 1995 and 2010, there was a relatively steady rate of decline in average weekly hours, from 33.3 hours to 31.3 hours in Apr-Jun 2011. This long-term pattern is observed in most advanced economies as a result of productivity improvement and labour-saving technologies. From 20115 until the Covid-19 pandemic, however, with labour’s bargaining power battered by austerity and anti-union reforms,6 the average weekly hours worked increased to 32.3 hours. In the latest quarter, October to December 2023 the average weekly hours worked was 31.5 hours'
-      }
-    ]
   },{
     type: 'HTML',
     cell: 'bucket-3',
@@ -390,62 +450,107 @@ Dashboards.board('dashboard-intro', {
     type: 'Highcharts',
     chartOptions: {
       chart: {
-        type: 'bar'
+        type: 'bubble',
+        plotBorderWidth: 1,
+        zoomType: 'xy'
     },
+
+    legend: {
+        enabled: false
+    },
+  
+    exporting: {
+      enabled: false 
+     },
     title: {
-        text: 'Low pay by Region and sex',
+      text:'Proportion of workers on low pay vs proportion of workers who believe they have good career progression, by industry',
       align: 'left'
     },
+    subtitle: {
+      text:'The size of the bubble represents the number of employees in a given industry',
+      align: 'left'
+    },    
     xAxis: {
-        categories: ['North East', 'Yorkshire and The Humber', 'Wales', 'East Midlands', 'South West', 'North West', 'Northern Ireland', 'West Midlands', 'South East', 'Scotland', 'East', 'London']
-    },credits: {
-      enabled: true,
-      text: 'Source: ONS'
-    },
-    yAxis: {
+        gridLineWidth: 1,
+        min: 35,
+        max: 75,
         title: {
-            text: 'Low pay'
+            text: 'Career progression opportunities'
         },
-        min: 0,
         labels: {
             format: '{value} %'
+        },
+        lineColor: '#BBBBBB',
+        tickColor: '#BBBBBB',
+        accessibility: {
+            rangeDescription: 'Range: 0 to 60%.'
         }
-    },caption:{
-      text:'The proportion of workers on low pay varies by region and nation in the UK, with the highest level of workers on low pay in the North East and the lowest level of workers on low pay in London. In London, 8% of workers had low pay, in the North East, 19% of workers had low pay. This measure is the UK measure for low pay where each workers’ wage, in whatever region or nation, is compared to the UK average. This measure is distinct from an alternative measure for low which measure the proportion of low wage workers relative to the average pay in each region.'
+    },credits: {
+      enabled: true,
+      text: 'Source: ONS',
+      href: 'https://www.ons.gov.uk/',
+        },
+      caption: {
+        text: 'The accommodation and food service industry has the highest proportion of employees on low pay (35.3 per cent) by a margin — the next highest low pay industry, arts, entertainment and recreation, is 15.2 percentage points lower — and 42.7 per cent of employees feel there are opportunities for career progression. Financial and insurance activities is the industry with the best outcomes where 63.6 per cent of employees agree or strongly agree that their job offers good opportunities for career progression.'
+      },
+    yAxis: {
+        startOnTick: true,
+        min: 0,
+        max: 40,
+        endOnTick: false,
+        title: {
+            text: 'Low Pay'
+        },
+        labels: {
+            format: '{value} %'
+        },
+        maxPadding: 0.2
+    },
+
+    tooltip: {
+        useHTML: true,
+        headerFormat: '<table>',
+        pointFormat: '<tr><th colspan="2"><h3>{point.name}</h3></th></tr>' +
+            '<tr><th>Career progression opportunities:</th><td>{point.x}%</td></tr>' +
+            '<tr><th>Low Pay:</th><td>{point.y}%</td></tr>' +
+            '<tr><th>Workforce population:</th><td>{point.z}</td></tr>',
+        footerFormat: '</table>'
+    },
+    plotOptions: {
+        bubble: {
+            dataLabels: {
+                enabled: true,
+                inside: false,
+                format: '{point.name}'
+            }
+        }
     },
     series: [{
-        name: 'Female',
-        data: [22.12903214, 19.95322359, 19.80788802, 19.36204534, 17.47114973, 18.05063185, 17.72113232, 17.6597203, 16.06811302, 13.84519244, 14.65640294, 10.00624227]
-    }, {
-        name: 'Male',
-        data: [15.94156666, 12.91182914, 13.21870605, 11.83164954, 12.77047312, 11.60216378, 10.58169072, 9.952499471, 8.743124008, 8.879924859, 7.522989251, 5.947158243]
-    }, {
-        name: 'Total',
-        data: [19.05614616, 16.36765141, 16.50754503, 15.61409882, 15.12510325, 14.80752882, 14.24372665, 13.75120289, 12.3610466, 11.3948859, 11.04807993, 7.919564993]
-    }],
-    plotOptions: {
-        column: {
-            grouping: true,
-            shadow: false,
-            borderWidth: 0
-        }
-    },
-    tooltip: {
-        formatter: function () {
-            return '<b>' +'Region: '+ '</b>'+ this.x + '<br/>' +
-                '<b>' + this.series.name + '</b>: ' + Highcharts.numberFormat(this.y, 2) + '%';
-        }
+      data: [
+    { x: 42.7, y: 35.3, z: 1557812.5, name: 'Accommodation and food service activities' },
+    { x: 44.6, y: 18.2, z: 1431996.75, name: 'Administrative and support service activities' },
+    { x: 46, y: 20.1, z: 1785133.75, name: 'Arts, entertainment and recreation' },
+    { x: 58.7, y: 7.8, z: 2142423.5, name: 'Construction' },
+    { x: 52.6, y: 14.6, z: 3426590.75, name: 'Education' },
+    { x: 64.2, y: 6.2, z: 599269.75, name: 'Electricity, gas, steam and air conditioning supply' },
+    { x: 67.8, y: 3.7, z: 1424122.25, name: 'Financial and insurance activities' },
+    { x: 55.7, y: 13.4, z: 4498645.25, name: 'Human health and social work activities' },
+    { x: 64.7, y: 5.1, z: 1581115, name: 'Information and communication' },
+    { x: 50.5, y: 9.7, z: 2725924.5, name: 'Manufacturing' },
+    { x: 60.8, y: 5.6, z: 599269.75, name: 'Mining and quarrying' },
+    { x: 46.7, y: 16, z: 1785133.75, name: 'Other service activities' },
+    { x: 63.4, y: 6.1, z: 2677678.5, name: 'Professional, scientific and technical activities' },
+    { x: 61, y: 4.5, z: 2389726, name: 'Public administration and defence; compulsory social security' },
+    { x: 54.2, y: 5.6, z: 414173.25, name: 'Real estate activities' },
+    { x: 49.6, y: 11.6, z: 1519744, name: 'Transportation and storage' },
+    { x: 61.9, y: 7.6, z: 599269.75, name: 'Water supply, sewerage, waste management and remediation activities' },
+    { x: 48.1, y: 14.2, z: 3801044.75, name: 'Wholesale inc. motor' }
+        ]
+    }]
     }
-    }
-  },{
-    type: 'HTML',
-    cell: 'bucket-3-col-1',
-    elements: [
-    {
-        tagName: 'p',
-        textContent: 'The proportion of workers on low pay varies by region and nation in the UK, with the highest level of workers on low pay in the North East and the lowest level of workers on low pay in London. In London, 8% of workers had low pay, in the North East, 19% of workers had low pay. This measure is the UK measure for low pay where each workers’ wage, in whatever region or nation, is compared to the UK average. This measure is distinct from an alternative measure for low which measure the proportion of low wage workers relative to the average pay in each region. '
-      }]
   }]
 });
+
+
 
 </script>
