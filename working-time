@@ -1,0 +1,383 @@
+<div id="working-time"></div>
+
+<style>
+
+@import url("https://code.highcharts.com/dashboards/css/dashboards.css");
+@import url("https://code.highcharts.com/css/highcharts.css");
+@import url("https://code.highcharts.com/dashboards/css/datagrid.css");
+@import url('https://use.typekit.net/mqe8val.css');
+/* Colors */
+:root {
+  --cdw-primary-purple: #9CA4FC;
+  --cdw-primary-green: #00C0A3;
+  --cdw-primary-yellow: #EDF67D;
+  --cdw-primary-red: #C13E56;
+  --cdw-secondary-purple:#5C328A;
+  --cdw-primary-dark-blue: #0C425B;
+  --cdw-secondary-melon: #FFA69E;
+  --cdw-primary-orange: #F5A623;
+  --cdw-secondary-turquoise: #70C1B3;
+  --cdw-secondary-green: #4E937A;
+}
+
+.highcharts-color-0 {
+  stroke: var(--cdw-primary-purple);
+  fill: var(--cdw-primary-purple);
+}
+
+.highcharts-color-1 {
+  stroke: var(--cdw-primary-green);
+  fill: var(--cdw-primary-green);
+}
+
+.highcharts-color-2 {
+  stroke: var(--cdw-primary-red);
+  fill: var(--cdw-primary-red);
+}
+
+.highcharts-color-3 {
+  stroke: var(--cdw-secondary-purple);
+  fill: var(--cdw-secondary-purple);
+}
+
+.highcharts-color-4 {
+  stroke: var(--cdw-primary-dark-blue);
+  fill: var(--cdw-primary-dark-blue);
+}
+
+.highcharts-color-5 {
+  stroke: var(--cdw-secondary-melon);
+  fill: var(--cdw-secondary-melon);
+}
+
+.highcharts-color-6 {
+  stroke: var(--cdw-primary-orange);
+  fill: var(--cdw-primary-orange);
+}
+
+.highcharts-color-7 {
+  stroke: var(--cdw-secondary-turquoise);
+  fill: var(--cdw-secondary-turquoise);
+}
+
+body {
+  font-family: 'neue-haas-unica', san-serif;
+}
+
+body h1 {
+    text-align: center;
+    font-size: 20px;
+}
+
+body h2 {
+    text-align: left;
+    font-size: 20px;
+    margin: 4px;
+}
+
+body p {
+  padding: 5px;
+  font-size: 14px;
+}
+
+body a {
+  color: #9CA4FC;
+  text-decoration: underline;
+}
+
+body h3 {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.highcharts-dashboards,
+.highcharts-dashboards-wrapper {
+    background-color: #333333;
+}
+
+.highcharts-dashboards,
+.highcharts-container,
+.highcharts-dashboards-wrapper {
+    font-family: 'neue-haas-unica', san-serif;
+}
+
+/* .highcharts-dashboards-cell, */
+.highcharts-dashboards-component{
+  padding:8px;
+  border-radius: 8px;
+  margin: 1px;
+}
+
+.highcharts-caption {
+  font-size:0.85em;
+  fill: #333333;
+}
+
+.highcharts-credits {
+    font-size: 0.7em;
+    fill: #666666;
+}
+
+/* RESPONSIVENESS */
+
+#bucket-2-col-0,
+#bucket-2-col-3,
+#bucket-2-col-4 {
+
+}
+
+#bucket-2-col-1,
+#bucket-2-col-2,
+#bucket-2-col-5 {
+    width: 400px;
+}
+
+/* LARGE */
+@media (max-width: 1200px) {
+    #bucket-2-col-0,
+    #bucket-2-col-1,
+    #bucket-2-col-2,
+    #bucket-2-col-3,
+    #bucket-2-col-4,
+    #bucket-2-col-5,
+    #bucket-2 {
+        flex: 1 1 100%;
+    }
+}
+  
+/* MEDIUM */
+@media (max-width: 992px) {
+    #bucket-2-col-0,
+    #bucket-2-col-1,
+    #bucket-2-col-2,
+    #bucket-2-col-3,
+    #bucket-2-col-4,
+    #bucket-2-col-5,
+    #bucket-2 {
+        flex: 1 1 100%;
+    }
+}
+  
+/* SMALL */
+@media (max-width: 576px) {
+    #bucket-2-col-0,
+    #bucket-2-col-1,
+    #bucket-2-col-2,
+    #bucket-2-col-3,
+    #bucket-2-col-4,
+    #bucket-2-col-5,
+    #bucket-2 {
+        flex: 1 1 100%;
+    }
+}
+
+
+</style>
+
+Dashboards.board('working-time', {
+  gui: {
+    layouts: [{
+      id: 'layout-1',
+      rows: [{
+        cells: [{
+          id: 'bucket-2'
+        }]
+      },{
+        cells: [{
+          id: 'bucket-2-col-0'
+        }, {
+          id: 'bucket-2-col-1'
+        }]
+      },{
+        cells: [{
+          id: 'bucket-2-col-2'
+        }, {
+          id: 'bucket-2-col-3'
+        }]
+      }]
+    }]
+  },
+  components: [{
+    type: 'HTML',
+    cell: 'bucket-2',
+    elements: [
+      {
+        tagName: 'h1',
+        textContent: 'Working Time'
+      },
+      {
+        tagName: 'p',
+        textContent: 'Two seemingly paradoxical problems characterise work in Britain: workers in Britain work some of the ',
+        children: [{
+          tagName: 'a',
+          textContent: 'longest hours in western Europe',
+          attributes: {
+            href: 'https://data.oecd.org/emp/hours-worked.htm'
+          }},{
+           tagName: 'span',
+           textContent: ', and many workers want more hours than they presently are offered. When viewed as symptoms of workers’ powerlessness, particularly in the context of a squeeze on incomes, however, this situation does not seem so paradoxical; if wages grew more quickly, workers would not need to work so much.'
+          }]
+      },
+      {
+        tagName: 'p',
+        textContent: 'People need to take on longer hours to get more income because of the squeeze on living standards and wage stagnation. Beyond this, workers are confronted by other temporal stresses. Many workers do not have a say over when they will be working. 37 per cent of all UK workers are given less than a week’s notice of shift patterns and eight per cent of working adults are told ',
+        children: [{
+          tagName: 'a',
+          textContent: 'less than 24 hours',
+          attributes: {
+            href: 'https://www.livingwage.org.uk/news/almost-one-third-working-adults-given-less-weeks-notice-working-hours'
+          }},{
+           tagName: 'span',
+           textContent: ' in advance.'
+          }]
+      },{
+        tagName: 'p',
+        textContent: 'This section explores underemployment, overemployment and total hours worked.'
+      }
+    ]
+  },{
+    cell: 'bucket-2-col-0',
+    type: 'Highcharts',
+    chartOptions: {
+      chart: {
+      type: 'line'
+    },
+    title: {
+      text:'The 2010s reversed the long-running trend of ever greater leisure and less work',
+      align: 'left'
+    },
+    subtitle: {
+      text:'Average weekly hours worked by part-time and full-time employees, rolling three-monthly figures, UK, 1995-2023',
+      align: 'left'
+    },
+    credits: {
+      enabled: true,
+      text: 'Source: ONS',
+      href: 'https://www.ons.gov.uk/'
+    },
+    yAxis: {
+      min:25,
+      title: {text: 'Hours'}
+    },
+    legend: {
+      enabled: false
+    },
+    exporting: {
+      enabled: false 
+     },
+    xAxis: {
+      labels: {
+        step:12
+      }
+    },
+      data: {
+        csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/avg%20hours.csv'
+      }
+    }
+  }, {
+    type: 'HTML',
+    cell: 'bucket-2-col-1',
+    elements: [
+      {
+        tagName: 'h2',
+        textContent: 'Average hours worked'
+      },
+      {
+        tagName: 'p',
+        textContent: 'Technological advances and associated productivity improvements have the great virtue of being able to deliver us in aggregate from being hostage to the necessities of survival. This underpinned J.M. Keynes’ ',
+        children: [{
+          tagName: 'a',
+          textContent:'prediction',
+          attributes: {
+            href: 'http://www.econ.yale.edu/smith/econ116a/keynes1.pdf'
+          }},{
+            tagName: 'span',
+            textContent: ' in 1928 that by 2028, citizens in rich countries would work only about fifteen hours a week. But the extent to which this freedom from necessity can be widely enjoyed is also influenced by the strength of labour to demand it — hence the carving out of the weekend thanks to '
+          },{
+          tagName: 'a',
+          textContent:'labour militancy',
+          attributes: {
+            href: 'https://www.tuc.org.uk/blogs/four-day-week-decent-pay-all-its-future'
+          }},{
+          tagName: 'span',
+          textContent: '. Four years out from its centenary, we are far from realising this prediction, but advanced economies have nonetheless enjoyed a long-term downtrend in working hours. (Note, importantly, that time away from paid work includes not just leisure but unpaid domestic work, disproportionately performed by women.) '
+          }]
+      },
+      {
+        tagName: 'p',
+        textContent: 'This chart shows the seasonally adjusted, weekly hours worked per worker between January 1995 and December 2023. Between 1995 and 2010, there was a relatively steady rate of decline in average weekly hours, from 33.3 hours to 31.3 hours in Apr-Jun 2011. This long-term pattern is ',
+        children: [{
+          tagName: 'a',
+          textContent:'observed',
+          attributes: {
+            href: 'https://ourworldindata.org/rich-poor-working-hours'
+          }},{
+            tagName: 'span',
+            textContent: ' in most advanced economies as a result of '
+          },{
+          tagName: 'a',
+          textContent:'productivity improvement',
+          attributes: {
+            href: 'https://webapps.ilo.org/wcmsp5/groups/public/---dgreports/---cabinet/documents/publication/wcms_649907.pdf'
+          }},{
+          tagName: 'span',
+          textContent: ' and labour-saving technologies. From 2011 until the Covid-19 pandemic, however, with labour’s bargaining power battered by austerity and anti-union reforms, the average weekly hours worked increased to 32.3 hours. In the latest quarter, October to December 2023 the average weekly hours worked was 31.5 hours.'
+          }]
+      }
+    ]
+  },{
+    type: 'HTML',
+    cell: 'bucket-2-col-2',
+    elements: [
+      {
+        tagName: 'h2',
+        textContent: 'Under/overemployment'
+      },
+      {
+        tagName: 'p',
+        textContent: 'While headline measures of unemployment address the ability of labour market participants to find work or not, this leaves out the question of whether they can find work offering the hours they desire. If someone is in work but working fewer hours than they would like, then this is still a failure of the labour market to provide work for people who want it, but is not counted in the unemployment statistics. Similarly, if people are willing to work fewer hours (and take the corresponding pay hit), e.g. in order to better accommodate their caring responsibilities, but cannot, then this too is a failure of the labour market to package work in a manner suitable to workers’ needs and preferences. In this case it confronts them with a dilemma between not working at all or working too much. Those who choose the former count as unemployed, while those choosing the latter count as over-employed.'
+      },
+      {
+        tagName: 'p',
+        textContent: 'The ONS defines underemployment as the proportion of employed people who want to work more hours and are available to start within two weeks in either their current job, a different job or an additional job. Between 2007 and 2009 there was a sharp increase in the underemployment rate from ~7 per cent to ~10 per cent. The underemployment rate remained at this level until 2013 when it started to decline. Since the Covid-19 pandemic, underemployment rates have varied but remains on a downward trajectory.'
+      },{
+        tagName: 'p',
+        textContent: 'The ONS defines overemployment as the share of workers who want fewer hours, with less pay in either their current job or a different job. (Note that this definition excludes people who work unpaid overtime.) This phenomenon is more common than underemployment, hovering around 9 per cent-11 per cent. It also varies less over the business cycle but does so in the opposite direction: it was at its highest before the financial crisis, and at its lowest in the early 2010s.'
+      }
+    ]
+  },{
+    cell: 'bucket-2-col-3',
+    type: 'Highcharts',
+    chartOptions: {
+      chart: {
+        type: 'line'
+      },
+      title: {
+        text: 'Underemployment remains higher than it was before the financial crisis',
+        align: 'left'
+      },
+      subtitle: {
+        text: 'Underemployment and overemployment rates, UK, 2002-2023',
+        align: 'left'
+      },credits: {
+      enabled: true,
+      text: 'Source: ONS',
+      href: 'https://www.ons.gov.uk/'
+    }, tooltip: {
+      valueDecimals: 1,
+      valueSuffix: '%'
+    },
+      yAxis: {
+        title: {enabled: false}, 
+        labels: {
+            format: '{value} %'
+        },
+        min:0
+      },
+      data: {
+        csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/underemployment_pivot.csv'
+      }
+    }
+  }]
+});
+
