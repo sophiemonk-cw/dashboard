@@ -7,7 +7,7 @@ Dashboards.board('work-quality', {
       id: 'layout-1',
       rows: [{
         cells: [{
-          id: 'bucket-3'
+          id: 'bucket-3-3'
         }]
       },{
         cells: [{
@@ -126,25 +126,25 @@ Dashboards.board('work-quality', {
     },
     series: [{
       data: [
-    { x: 42.7, y: 35.3, z: 1557812.5, name: 'Accommodation and food service activities' },
-    { x: 44.6, y: 18.2, z: 1431996.75, name: 'Administrative and support service activities' },
-    { x: 46, y: 20.1, z: 1785133.75, name: 'Arts, entertainment and recreation' },
+    { x: 42.7, y: 35.3, z: 1557812.5, name: 'Hospitality' },
+    { x: 44.6, y: 18.2, z: 1431996.75, name: 'Admin & support' },
+    { x: 46, y: 20.1, z: 1785133.75, name: 'Art & culture' },
     { x: 58.7, y: 7.8, z: 2142423.5, name: 'Construction' },
     { x: 52.6, y: 14.6, z: 3426590.75, name: 'Education' },
-    { x: 64.2, y: 6.2, z: 599269.75, name: 'Electricity, gas, steam and air conditioning supply' },
-    { x: 67.8, y: 3.7, z: 1424122.25, name: 'Financial and insurance activities' },
-    { x: 55.7, y: 13.4, z: 4498645.25, name: 'Human health and social work activities' },
-    { x: 64.7, y: 5.1, z: 1581115, name: 'Information and communication' },
+    { x: 64.2, y: 6.2, z: 599269.75, name: 'Energy' },
+    { x: 67.8, y: 3.7, z: 1424122.25, name: 'Finance' },
+    { x: 55.7, y: 13.4, z: 4498645.25, name: 'Health & social work' },
+    { x: 64.7, y: 5.1, z: 1581115, name: 'ICT' },
     { x: 50.5, y: 9.7, z: 2725924.5, name: 'Manufacturing' },
-    { x: 60.8, y: 5.6, z: 599269.75, name: 'Mining and quarrying' },
-    { x: 46.7, y: 16, z: 1785133.75, name: 'Other service activities' },
-    { x: 63.4, y: 6.1, z: 2677678.5, name: 'Professional, scientific and technical activities' },
-    { x: 61, y: 4.5, z: 2389726, name: 'Public administration and defence; compulsory social security' },
-    { x: 54.2, y: 5.6, z: 414173.25, name: 'Real estate activities' },
-    { x: 49.6, y: 11.6, z: 1519744, name: 'Transportation and storage' },
-    { x: 61.9, y: 7.6, z: 599269.75, name: 'Water supply, sewerage, waste management and remediation activities' },
-    { x: 48.1, y: 14.2, z: 3801044.75, name: 'Wholesale inc. motor' }
-        ]
+    { x: 60.8, y: 5.6, z: 599269.75, name: 'Mining & quarrying' },
+    { x: 46.7, y: 16, z: 1785133.75, name: 'Other services' },
+    { x: 63.4, y: 6.1, z: 2677678.5, name: 'Professional' },
+    { x: 61, y: 4.5, z: 2389726, name: 'Public' },
+    { x: 54.2, y: 5.6, z: 414173.25, name: 'Real estate' },
+    { x: 49.6, y: 11.6, z: 1519744, name: 'Logistics' },
+    { x: 61.9, y: 7.6, z: 599269.75, name: 'Utilities' },
+    { x: 48.1, y: 14.2, z: 3801044.75, name: 'Wholesale' }
+]
     }]
     }
   },{
@@ -253,7 +253,7 @@ series: [
       }]
   },{
     type: 'HTML',
-    cell: 'bucket-3',
+    cell: 'bucket-3-3',
     elements: [
       {
         tagName: 'h1',
@@ -365,5 +365,7 @@ series: [
       }]
   }]
 });
+
+
 
 </script>
