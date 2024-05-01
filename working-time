@@ -7,208 +7,366 @@ Dashboards.board('working-time', {
       id: 'layout-1',
       rows: [{
         cells: [{
-          id: 'bucket-2-2'
+          id: 'bucket-3-3'
         }]
       },{
         cells: [{
-          id: 'bucket-2-col-0'
+          id: 'bucket-3-col-0',
+          width: '30%'
         }, {
-          id: 'bucket-2-col-1'
+          id: 'bucket-3-col-1',
+          width: '70%'
         }]
       },{
         cells: [{
-          id: 'bucket-2-col-2'
+          id: 'bucket-3-col-2'
         }, {
-          id: 'bucket-2-col-3'
+          id: 'bucket-3-col-3'
+        }]
+      },{
+        cells: [{
+          id: 'bucket-3-col-4'
+        }, {
+          id: 'bucket-3-col-5'
         }]
       }]
     }]
   },
   components: [{
     type: 'HTML',
-    cell: 'bucket-2-2',
+    cell: 'bucket-3-col-2',
     elements: [
       {
-        tagName: 'h1',
-        textContent: 'Working Time'
+        tagName: 'h2',
+        textContent: 'Career progression opportunities and low pay',
       },
       {
         tagName: 'p',
-        textContent: 'Two seemingly paradoxical problems characterise work in Britain: workers in Britain work some of the ',
-        children: [{
-          tagName: 'a',
-          textContent: 'longest hours in western Europe',
-          attributes: {
-            href: 'https://data.oecd.org/emp/hours-worked.htm'
-          }},{
-           tagName: 'span',
-           textContent: ', and many workers want more hours than they presently are offered. When viewed as symptoms of workers’ powerlessness, particularly in the context of a squeeze on incomes, however, this situation does not seem so paradoxical; if wages grew more quickly, workers would not need to work so much.'
-          }]
+        textContent: 'The possibility of earning more money, of progressing in a career, rather than being stuck in one, typically low-paid job, for life, is one clear good of work. It is consistently denied to workers in some sectors, especially accommodation and food services. As the chart below shows the proportion of employees who believe their industry has good career progression and the proportion of employees on low pay is strongly correlated.'
       },
       {
         tagName: 'p',
-        textContent: 'People need to take on longer hours to get more income because of the squeeze on living standards and wage stagnation. Beyond this, workers are confronted by other temporal stresses. Many workers do not have a say over when they will be working. 37 per cent of all UK workers are given less than a week’s notice of shift patterns and eight per cent of working adults are told ',
-        children: [{
-          tagName: 'a',
-          textContent: 'less than 24 hours',
-          attributes: {
-            href: 'https://www.livingwage.org.uk/news/almost-one-third-working-adults-given-less-weeks-notice-working-hours'
-          }},{
-           tagName: 'span',
-           textContent: ' in advance.'
-          }]
-      },{
-        tagName: 'p',
-        textContent: 'This section explores underemployment, overemployment and total hours worked.'
-      }
-    ]
+        textContent: 'The accommodation and food service industry has the highest proportion of employees on low pay (35.3 per cent) by a margin — the next highest low pay industry, arts, entertainment and recreation, is 15.2 percentage points lower — and 42.7 per cent of employees feel there are opportunities for career progression. Financial and insurance activities is the industry with the best outcomes where 63.6 per cent of employees agree or strongly agree that their job offers good opportunities for career progression. '
+      }]
   },{
-    cell: 'bucket-2-col-0',
+    cell: 'bucket-3-col-3',
     type: 'Highcharts',
     chartOptions: {
       chart: {
-      type: 'line'
+        type: 'bubble',
+        plotBorderWidth: 1
     },
+
+    legend: {
+        enabled: false
+    },
+  
+    exporting: {
+      enabled: false 
+     },
     title: {
-      text:'The 2010s reversed the long-running trend of ever greater leisure and less work',
+      text:'Industries with few career progression opportunities also have higher incidence of low pay',
       align: 'left'
     },
     subtitle: {
-      text:'Average weekly hours worked by part-time and full-time employees, rolling three-monthly figures, UK, 1995-2023',
+      text:'Incidence of low pay vs worker-assessed career progression opportunities, UK, 2022. Bubble size = workforce size',
+      align: 'left'
+    },    
+    xAxis: {
+        gridLineWidth: 1,
+        min: 35,
+        max: 75,
+        title: {
+            text: 'Career progression opportunities'
+        },
+        labels: {
+            format: '{value} %'
+        },
+        lineColor: '#BBBBBB',
+        tickColor: '#BBBBBB',
+        accessibility: {
+            rangeDescription: 'Range: 0 to 60%.'
+        }
+    },credits: {
+      enabled: true,
+      text: 'Source: ONS',
+      href: 'https://www.ons.gov.uk/'
+        },
+    yAxis: {
+        startOnTick: true,
+        min: 0,
+        max: 40,
+        endOnTick: false,
+        title: {
+            text: 'Low Pay'
+        },
+        labels: {
+            format: '{value} %'
+        },
+        maxPadding: 0.2
+    },
+
+    tooltip: {
+        useHTML: true,
+        headerFormat: '<table>',
+        pointFormat: '<tr><th colspan="2"><h3>{point.name}</h3></th></tr>' +
+            '<tr><th>Career progression opportunities:</th><td>{point.x}%</td></tr>' +
+            '<tr><th>Low Pay:</th><td>{point.y}%</td></tr>' +
+            '<tr><th>Workforce population:</th><td>{point.z}</td></tr>',
+        footerFormat: '</table>'
+    },
+    plotOptions: {
+        bubble: {
+            dataLabels: {
+                enabled: true,
+                inside: false,
+                format: '{point.name}'
+            }
+        }
+    },
+    series: [{
+      data: [
+    { x: 42.7, y: 35.3, z: 1557812.5, name: 'Hospitality' },
+    { x: 44.6, y: 18.2, z: 1431996.75, name: 'Admin & support' },
+    { x: 46, y: 20.1, z: 1785133.75, name: 'Art & culture' },
+    { x: 58.7, y: 7.8, z: 2142423.5, name: 'Construction' },
+    { x: 52.6, y: 14.6, z: 3426590.75, name: 'Education' },
+    { x: 64.2, y: 6.2, z: 599269.75, name: 'Energy' },
+    { x: 67.8, y: 3.7, z: 1424122.25, name: 'Finance' },
+    { x: 55.7, y: 13.4, z: 4498645.25, name: 'Health & social work' },
+    { x: 64.7, y: 5.1, z: 1581115, name: 'ICT' },
+    { x: 50.5, y: 9.7, z: 2725924.5, name: 'Manufacturing' },
+    { x: 60.8, y: 5.6, z: 599269.75, name: 'Mining & quarrying' },
+    { x: 46.7, y: 16, z: 1785133.75, name: 'Other services' },
+    { x: 63.4, y: 6.1, z: 2677678.5, name: 'Professional' },
+    { x: 61, y: 4.5, z: 2389726, name: 'Public' },
+    { x: 54.2, y: 5.6, z: 414173.25, name: 'Real estate' },
+    { x: 49.6, y: 11.6, z: 1519744, name: 'Logistics' },
+    { x: 61.9, y: 7.6, z: 599269.75, name: 'Utilities' },
+    { x: 48.1, y: 14.2, z: 3801044.75, name: 'Wholesale' }
+]
+    }]
+    }
+  },{
+    cell: 'bucket-3-col-0',
+    type: 'Highcharts',
+    chartOptions: {
+      chart: {
+      type: 'errorbar'
+    },
+    title: {
+      text:'Mixed-race Caribbean and Bangladeshi workers suffer the lowest pay',
       align: 'left'
     },
-    credits: {
+    subtitle: {
+      text:'Unadjusted median pay gaps relative to white British workers, England and Wales, 2022',
+      align: 'left'
+    },
+    tooltip: {
+      format: '<b>{x}: </b>'+'{y}%'
+    },
+    legend: {
+      enabled: false
+    },credits: {
+      enabled: true,
+      text: 'Source: ONS',
+      href: 'https://www.ons.gov.uk/'
+    },yAxis: {
+        labels: {
+            format: '{value}%'
+        },
+        title: {enabled: false}
+    },xAxis: [
+        {
+            categories: [
+    "Mixed or Multiple ethnic groups: White and Black Caribbean",
+    "Asian or Asian British: Bangladeshi",
+    "Asian or Asian British: Pakistani",
+    "Black, African, Caribbean or Black British: Other Black",
+    "Asian or Asian British: Other Asian",
+    "Black, African, Caribbean or Black British: African",
+    "Mixed or Multiple ethnic groups: White and Black African",
+    "Black, African, Caribbean or Black British: Caribbean",
+    "White: Other White",
+    "Other ethnic group: Any other ethnic group",
+    "Other ethnic group: Arab",
+    "Mixed or Multiple ethnic groups: Other Mixed or Multiple ethnic groups",
+    "Mixed or Multiple ethnic groups: White and Asian",
+    "Asian or Asian British: Indian",
+    "Asian or Asian British: Chinese",
+    "White: Irish"
+]
+        }
+    ],
+series: [
+  {
+    name: 'paygap',
+    type: 'bar',
+    data: [
+    -18.5, -17.5, -13.3, -13.3, -7.7, -7.3, -1.8, -1.7, 0.6, 4, 4.3, 14.4, 17.4, 19.9, 23, 40.1
+]
+  },
+  {
+    name: 'paygap-error',
+    type: 'errorbar',
+    enableMouseTracking: false,
+    data: [
+   [-7.2, -28.5], [-8.6, -25.5], [-5.8, -20.3], [1.6, -26], [-0.5, -14.4], [-2.5, -11.8], [29.1, -25.3], [9.3, -11.5], [4.4, -3.2], [12.9, -4.2], [34.7, -19.2], [37.8, -5.1], [29.4, 6.5], [28.1, 12.3], [40.2, 7.8], [57.1, 24.9]
+]
+  },
+],
+    exporting: {
+      enabled: false 
+     }
+  }
+  }, {
+    type: 'HTML',
+    cell: 'bucket-3-col-1',
+    elements: [
+      {
+        tagName: 'h2',
+        textContent: 'The ethnicity pay gap',
+      },
+      {
+        tagName: 'p',
+        textContent: 'For a variety of reasons, people of different ethnic backgrounds are often likely to face different work prospects. This relationship is mediated by factors such as where they are located, what education opportunities they are afforded, and what opportunities the labour market offers them in light of that. The upshot of all of is the dispersal of wage levels along ethnic lines, which can serve to perpetuate the cycle.'
+      },{
+        tagName: 'p',
+        textContent: 'This chart shows the median hourly wage for each of the remaining 18 detailed ethnicity categories expressed relative to white British employees. (Statistical 95 per cent confidence intervals are also displayed, and in the case of ethnicities with small samples, can be very wide. "White gypsy or Irish traveller" is excluded for this reason.)'
+      },
+    {
+        tagName: 'p',
+        textContent: 'Note that these are not adjusted to control for personal and work characteristics, such as their occupation or location. This is because, as noted above, such characteristics are themselves vectors through which labour market outcomes are determined, so unless one wishes to restrict one’s analysis strictly to intra-occupational pay differentials, then for most purposes it is ',
+          children: [{
+            tagName:'a',
+            textContent: 'more appropriate',
+              attributes: {
+                  href: 'https://www.epi.org/publication/what-is-the-gender-pay-gap-and-is-it-real/ '
+              }
+          },{
+            tagName: 'span',
+            textContent: ' not to make such adjustments.'
+          }]
+      },{
+        tagName: 'p',
+        textContent: 'The median Chinese or Indian worker is paid at least 20 per cent more per hour than the median white British worker. By contrast the median worker Pakistani and black British workers earn 13 per cent less, while the pay shortfall for the median Bangladeshi worker is 18 per cent. (The massive positive 40 per cent pay gap for white Irish workers reflects the fact that immigrants to the UK are primarily drawn from the top end of Ireland’s skill distribution.)'
+      }]
+  },{
+    type: 'HTML',
+    cell: 'bucket-3-3',
+    elements: [
+      {
+        tagName: 'h1',
+        textContent: 'Work Quality'
+      },
+      {
+        tagName: 'p',
+        textContent: 'What makes one job better than another? Pay is one of the most notable factors; the amount of money in your pocket, in a market society, determines overwhelmingly the quality of your life. But there are other important goods of work tooi and the distribution of these – with fewer going to low-paid workers, women, racialised workers, and workers in certain regions of the UK – are troubling.  Among these unfairly distributed goods, we might list, autonomy (control over the tasks you have at work), job security (a contract that you want, how likely you are to keep your job), a say over decisions in your workplace, progression, and workplace training. '
+      },
+      {
+        tagName: 'p',
+        textContent: 'This section explores low pay, disparities in pay and career progression opportunities.'
+      }]
+  },{
+    cell: 'bucket-3-col-4',
+    type: 'Highcharts',
+    chartOptions: {
+      chart: {
+        type: 'bar'
+    },title: {
+        text: 'North East employees were the most likely to be in low pay',
+        align: 'left'
+    },
+    subtitle: {
+        text: 'Proportion of employees on low pay, UK measure of low pay, by sex and region, 2022',
+        align: 'left'
+    },
+    xAxis: {
+        categories: ['North East', 'Yorkshire and The Humber', 'Wales', 'East Midlands', 'South West', 'North West', 'Northern Ireland', 'West Midlands', 'South East', 'Scotland', 'East', 'London']
+    },credits: {
       enabled: true,
       text: 'Source: ONS',
       href: 'https://www.ons.gov.uk/'
     },
     yAxis: {
-      min:25,
-      title: {text: 'Hours'}
-    },
-    legend: {
-      enabled: false
-    },
-    exporting: {
-      enabled: false 
-     },
-    xAxis: {
-      labels: {
-        step:12
-      }
-    },
-      data: {
-        csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/avg%20hours.csv'
-      }
-    }
-  }, {
-    type: 'HTML',
-    cell: 'bucket-2-col-1',
-    elements: [
-      {
-        tagName: 'h2',
-        textContent: 'Average hours worked'
-      },
-      {
-        tagName: 'p',
-        textContent: 'Technological advances and associated productivity improvements have the great virtue of being able to deliver us in aggregate from being hostage to the necessities of survival. This underpinned J.M. Keynes’ ',
-        children: [{
-          tagName: 'a',
-          textContent:'prediction',
-          attributes: {
-            href: 'http://www.econ.yale.edu/smith/econ116a/keynes1.pdf'
-          }},{
-            tagName: 'span',
-            textContent: ' in 1928 that by 2028, citizens in rich countries would work only about fifteen hours a week. But the extent to which this freedom from necessity can be widely enjoyed is also influenced by the strength of labour to demand it — hence the carving out of the weekend thanks to '
-          },{
-          tagName: 'a',
-          textContent:'labour militancy',
-          attributes: {
-            href: 'https://www.tuc.org.uk/blogs/four-day-week-decent-pay-all-its-future'
-          }},{
-          tagName: 'span',
-          textContent: '. Four years out from its centenary, we are far from realising this prediction, but advanced economies have nonetheless enjoyed a long-term downtrend in working hours. (Note, importantly, that time away from paid work includes not just leisure but unpaid domestic work, disproportionately performed by women.) '
-          }]
-      },
-      {
-        tagName: 'p',
-        textContent: 'This chart shows the seasonally adjusted, weekly hours worked per worker between January 1995 and December 2023. Between 1995 and 2010, there was a relatively steady rate of decline in average weekly hours, from 33.3 hours to 31.3 hours in Apr-Jun 2011. This long-term pattern is ',
-        children: [{
-          tagName: 'a',
-          textContent:'observed',
-          attributes: {
-            href: 'https://ourworldindata.org/rich-poor-working-hours'
-          }},{
-            tagName: 'span',
-            textContent: ' in most advanced economies as a result of '
-          },{
-          tagName: 'a',
-          textContent:'productivity improvement',
-          attributes: {
-            href: 'https://webapps.ilo.org/wcmsp5/groups/public/---dgreports/---cabinet/documents/publication/wcms_649907.pdf'
-          }},{
-          tagName: 'span',
-          textContent: ' and labour-saving technologies. From 2011 until the Covid-19 pandemic, however, with labour’s bargaining power battered by austerity and anti-union reforms, the average weekly hours worked increased to 32.3 hours. In the latest quarter, October to December 2023 the average weekly hours worked was 31.5 hours.'
-          }]
-      }
-    ]
-  },{
-    type: 'HTML',
-    cell: 'bucket-2-col-2',
-    elements: [
-      {
-        tagName: 'h2',
-        textContent: 'Under/overemployment'
-      },
-      {
-        tagName: 'p',
-        textContent: 'While headline measures of unemployment address the ability of labour market participants to find work or not, this leaves out the question of whether they can find work offering the hours they desire. If someone is in work but working fewer hours than they would like, then this is still a failure of the labour market to provide work for people who want it, but is not counted in the unemployment statistics. Similarly, if people are willing to work fewer hours (and take the corresponding pay hit), e.g. in order to better accommodate their caring responsibilities, but cannot, then this too is a failure of the labour market to package work in a manner suitable to workers’ needs and preferences. In this case it confronts them with a dilemma between not working at all or working too much. Those who choose the former count as unemployed, while those choosing the latter count as over-employed.'
-      },
-      {
-        tagName: 'p',
-        textContent: 'The ONS defines underemployment as the proportion of employed people who want to work more hours and are available to start within two weeks in either their current job, a different job or an additional job. Between 2007 and 2009 there was a sharp increase in the underemployment rate from ~7 per cent to ~10 per cent. The underemployment rate remained at this level until 2013 when it started to decline. Since the Covid-19 pandemic, underemployment rates have varied but remains on a downward trajectory.'
-      },{
-        tagName: 'p',
-        textContent: 'The ONS defines overemployment as the share of workers who want fewer hours, with less pay in either their current job or a different job. (Note that this definition excludes people who work unpaid overtime.) This phenomenon is more common than underemployment, hovering around 9 per cent-11 per cent. It also varies less over the business cycle but does so in the opposite direction: it was at its highest before the financial crisis, and at its lowest in the early 2010s.'
-      }
-    ]
-  },{
-    cell: 'bucket-2-col-3',
-    type: 'Highcharts',
-    chartOptions: {
-      chart: {
-        type: 'line'
-      },
-      title: {
-        text: 'Underemployment remains higher than it was before the financial crisis',
-        align: 'left'
-      },
-      subtitle: {
-        text: 'Underemployment and overemployment rates, UK, 2002-2023',
-        align: 'left'
-      },credits: {
-      enabled: true,
-      text: 'Source: ONS',
-      href: 'https://www.ons.gov.uk/'
-    }, tooltip: {
-      shared: true,
-      valueDecimals: 1,
-      crosshairs: true,
-      valueSuffix: '%'
-    },
-      yAxis: {
-        title: {enabled: false}, 
+        title: {
+            text: ''
+        },
+      tickInterval: 5,
+        min: 0,
         labels: {
             format: '{value} %'
-        },
-        min:0
-      },
-      data: {
-        csvURL: 'https://raw.githubusercontent.com/sun-flinders/cdw/main/underemployment_pivot.csv'
-      }
+        }
+    },
+    series: [{
+        name: 'Female',
+        data: [22.12903214, 19.95322359, 19.80788802, 19.36204534, 17.47114973, 18.05063185, 17.72113232, 17.6597203, 16.06811302, 13.84519244, 14.65640294, 10.00624227]
+    }, {
+        name: 'Male',
+        data: [15.94156666, 12.91182914, 13.21870605, 11.83164954, 12.77047312, 11.60216378, 10.58169072, 9.952499471, 8.743124008, 8.879924859, 7.522989251, 5.947158243]
+    }, {
+        name: 'Total',
+        data: [19.05614616, 16.36765141, 16.50754503, 15.61409882, 15.12510325, 14.80752882, 14.24372665, 13.75120289, 12.3610466, 11.3948859, 11.04807993, 7.919564993]
+    }],
+    plotOptions: {
+        bar: {
+            grouping: true,
+            shadow: false,
+            borderWidth: 0,
+            pointWidth: 4
+        }
+    },
+    tooltip: {
+        formatter: function () {
+            return '<b>' +'Region: '+ '</b>'+ this.x + '<br/>' +
+                '<b>' + this.series.name + '</b>: ' + Highcharts.numberFormat(this.y, 2) + '%';
+        }
     }
+    }
+  },{
+    type: 'HTML',
+    cell: 'bucket-3-col-5',
+    elements: [
+      {
+        tagName: 'h2',
+        textContent: 'Pay',
+      },
+      {
+        tagName: 'p',
+        textContent: 'People work for money. This might seem a truism, but for many, jobs in the UK are structurally unable to deliver on its promise: if you work, you’ll earn enough to get by.'
+      },
+      {
+        tagName: 'p',
+        textContent: 'The majority of people in poverty are in working households (',
+          children: [{
+            tagName: 'a',
+            textContent: '57 per cent',
+              attributes: {
+            href: 'https://www.tuc.org.uk/blogs/only-good-well-paid-work-route-out-poverty'
+          }},{
+            tagName: 'span',
+            textContent: '). A central cause of the growth of in-work poverty, is the collapse of wage growth. Before 2008, real wages typically grew by two per cent per year. Since then, growth has flatlined. If wages had continued to grow at their pre-crash rate, they would have been '
+          },{
+            tagName: 'a',
+            textContent: '£230 higher per week',
+              attributes: {
+            href: 'https://www.resolutionfoundation.org/press-releases/pay-growth-accelerates-to-end-18-month-wage-squeeze-but-15-year-stagnation-has-left-average-earnings-230-a-week-lower-than-their-pre-financial-crisis-trend/'
+          }},{
+            tagName: 'span',
+            textContent: ' in 2023 than in 2008.'
+          }]
+      },{
+        tagName: 'p',
+        textContent: 'The prevalence of low pay varies by region and sex. Women are more likely to be on low pay than men, and workers in the North East are twice as likely to receive low pay than workers in London. '
+      },
+    {
+        tagName: 'p',
+        textContent: 'The proportion of workers on low pay varies by region and nation in the UK, with the highest level of workers on low pay in the North East and the lowest level of workers on low pay in London. In London, eight per cent of workers had low pay, in the North East, 19 per cent of workers had low pay. This measure is the UK measure for low pay where each workers’ wage, in whatever region or nation, is compared to the UK average. This measure is distinct from an alternative measure for low which measure the proportion of low wage workers relative to the average pay in each region.'
+      }]
   }]
 });
+
+
 
 
 
